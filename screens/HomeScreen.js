@@ -30,10 +30,13 @@ const HomeScreen = () => {
       </View>
       {/* homescreen content  */}
       <View>
-        <Text style={{ color: "white" }}>Juwan Hollingsworth</Text>
-        <Image style={{ width: 25, height: 25 }} source={avatar} />
-        <Text style={{ color: "white" }}>Full Stack Developer</Text>
-        <Text style={{ color: "white" }}>Atlanta, GA 📍</Text>
+        <Text style={styles.homeScreenTitle}>Juwan Hollingsworth</Text>
+        <View style={styles.homescreenImageContainer}>
+          <Image style={styles.homeScreenImage} source={avatar} />
+        </View>
+
+        <Text style={styles.homeScreenSubtitle}>Full Stack Developer</Text>
+        <Text style={styles.homeScreenLocationtitle}>Atlanta, GA 📍</Text>
       </View>
       <SocialMediaBtns />
     </ScrollView>
@@ -51,5 +54,38 @@ const styles = StyleSheet.create({
   },
   homescreenContainer: {
     backgroundColor: "#152238",
+    flex: 1,
+  },
+  homeScreenTitle: {
+    fontFamily: "libre baskerville",
+    fontWeight: "400",
+    fontStyle: "italic",
+    color: "white",
+    fontSize: 64,
+    textAlign: "center",
+  },
+  homescreenImageContainer: {
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  homeScreenImage: {
+    width: 400,
+    height: 400,
+  },
+  homeScreenSubtitle: {
+    fontFamily: "lato-Regular",
+    fontWeight: "400",
+    fontStyle: "Regular",
+    color: "white",
+    fontSize: 32,
+    textAlign: "center",
+  },
+  homeScreenLocationtitle: {
+    fontFamily: "lato-Regular",
+    fontWeight: "400",
+    fontStyle: "Regular",
+    color: "white",
+    fontSize: 24,
+    textAlign: "center",
   },
 });
