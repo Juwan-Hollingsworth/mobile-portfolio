@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
     fontWeight: "400",
     fontStyle: "italic",
     color: "white",
-    fontSize: 64,
+    fontSize: "6vw", //change size of title based on viewport
     textAlign: "center",
   },
   homescreenImageContainer: {
@@ -69,15 +69,19 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   homeScreenImage: {
-    width: 400,
-    height: 400,
+    width: "80%",
+    height: "80%", // Adjust size based on percentage of container width
+    aspectRatio: 1, // Maintain aspect ratio
+    resizeMode: "contain",
+    marginTop: 10, // Adjust top margin as needed
+    marginBottom: 10,
   },
   homeScreenSubtitle: {
     fontFamily: "lato-Regular",
     fontWeight: "400",
     fontStyle: "Regular",
     color: "white",
-    fontSize: 32,
+    fontSize: "3vw",
     textAlign: "center",
   },
   homeScreenLocationtitle: {
@@ -85,7 +89,7 @@ const styles = StyleSheet.create({
     fontWeight: "400",
     fontStyle: "Regular",
     color: "white",
-    fontSize: 24,
+    fontSize: "2.5vw",
     textAlign: "center",
   },
 });
