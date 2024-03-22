@@ -13,6 +13,7 @@ import React from "react";
 import SocialMediaBtns from "../components/SocialMediaBtns";
 import avatar from "../assets/avatar.png";
 import HeaderBtns from "../components/HeaderBtns";
+import NextPageBtn from "../components/NextPageBtn";
 
 const HomeScreen = () => {
   return (
@@ -38,7 +39,13 @@ const HomeScreen = () => {
         <Text style={styles.homeScreenSubtitle}>Full Stack Developer</Text>
         <Text style={styles.homeScreenLocationtitle}>Atlanta, GA 📍</Text>
       </View>
-      <SocialMediaBtns />
+      <View style={styles.homeScreenBtnContainer}>
+        <SocialMediaBtns />
+      </View>
+      <View style={styles.homeScreenBtnContainer}>
+        <NextPageBtn />
+      </View>
+      <View></View>
     </ScrollView>
   );
 };
@@ -91,5 +98,10 @@ const styles = StyleSheet.create({
     color: "white",
     fontSize: "2.5vw",
     textAlign: "center",
+  },
+  homeScreenBtnContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
   },
 });
