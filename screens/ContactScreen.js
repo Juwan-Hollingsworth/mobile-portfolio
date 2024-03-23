@@ -1,4 +1,10 @@
-import { StyleSheet, Text, View, ScrollView, Button } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  ScrollView,
+  TouchableOpacity,
+} from "react-native";
 import React from "react";
 import { animate, motion as m } from "framer-motion";
 
@@ -28,9 +34,9 @@ const AboutScreen = () => {
       {/* homescreen content  */}
       <View style={styles.contactContainer}>
         <Text style={styles.contactScreenSubtitle}>Let's Connect 📶</Text>
-        {/* <Button>
+        <TouchableOpacity style={styles.contactBtnContainer}>
           <Text style={styles.contactScreenText}>Email 📩</Text>
-        </Button> */}
+        </TouchableOpacity>
 
         <Text style={styles.contactScreenText}>Email 📩</Text>
         <Text style={styles.contactScreenText}>LinkedIn 👨🏾‍💻</Text>
@@ -40,7 +46,12 @@ const AboutScreen = () => {
       <View style={styles.homeScreenBtnContainer}>
         <View>
           <View style={{ padding: 5 }}>
-            <AntDesign name="upcircleo" size={24} color="white" />
+            <TouchableOpacity
+              style={styles.contactBtnContainer}
+              onClick={() => {}}
+            >
+              <AntDesign name="upcircleo" size={24} color="white" />
+            </TouchableOpacity>
           </View>
           <Text style={styles.contactScreenTextSm}>Back to the top</Text>
         </View>
@@ -54,6 +65,15 @@ const AboutScreen = () => {
 export default AboutScreen;
 
 const styles = StyleSheet.create({
+  contactBtnContainer: {
+    border: "2px solid white", // Border with white color
+    borderRadius: "9999px", // For a rounded shape
+    padding: "0.75rem 2rem", // Padding for the button
+    backgroundColor: "transparent", // Transparent background
+    color: "white", // White text color
+    transition: "background-color 0.3s, color 0.3s", // Transition effect for color change
+    opacity: 0,
+  },
   headerArea: {
     flexDirection: "row",
     justifyContent: "space-between",

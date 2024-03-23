@@ -5,7 +5,7 @@ const HeaderBtns = (props) => {
   const { onPress, title = null, color = "#e9c822" } = props;
   return (
     //create pressable button
-    <Pressable style={styles.button} onPress={onPress}>
+    <Pressable style={styles.headerButton} onPress={onPress}>
       <Text style={styles.text}>{title}</Text>
     </Pressable>
   );
@@ -14,7 +14,7 @@ const HeaderBtns = (props) => {
 export default HeaderBtns;
 
 const styles = StyleSheet.create({
-  button: {
+  headerButton: {
     alignItems: "center",
     justifyContent: "center",
     paddingVertical: 12,
