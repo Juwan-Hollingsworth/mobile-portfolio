@@ -1,23 +1,19 @@
-import {
-  StyleSheet,
-  Text,
-  View,
-  SafeAreaView,
-  Alert,
-  Pressable,
-  Image,
-  ScrollView,
-  Button,
-} from "react-native";
+import { StyleSheet, Text, View, ScrollView, Button } from "react-native";
 import React from "react";
-import SocialMediaBtns from "../components/SocialMediaBtns";
-import avatar from "../assets/avatar.png";
+import { animate, motion as m } from "framer-motion";
+
 import HeaderBtns from "../components/HeaderBtns";
-import NextPageBtn from "../components/NextPageBtn";
+
+import { AntDesign } from "@expo/vector-icons";
 
 const AboutScreen = () => {
   return (
-    <ScrollView style={styles.homescreenContainer}>
+    <m.ScrollView
+      style={styles.homescreenContainer}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.75, ease: "easeOut" }}
+    >
       {/* header area + btns  */}
       <View style={styles.headerArea}>
         <HeaderBtns
@@ -30,23 +26,28 @@ const AboutScreen = () => {
         />
       </View>
       {/* homescreen content  */}
-      <View>
-        <Text style={styles.homeScreenTitle}>Juwan Hollingsworth</Text>
-        <View style={styles.homescreenImageContainer}>
-          <Image style={styles.homeScreenImage} source={avatar} />
-        </View>
+      <View style={styles.contactContainer}>
+        <Text style={styles.contactScreenSubtitle}>Let's Connect 📶</Text>
+        {/* <Button>
+          <Text style={styles.contactScreenText}>Email 📩</Text>
+        </Button> */}
 
-        <Text style={styles.homeScreenSubtitle}>Full Stack Developer</Text>
-        <Text style={styles.homeScreenLocationtitle}>Atlanta, GA 📍</Text>
+        <Text style={styles.contactScreenText}>Email 📩</Text>
+        <Text style={styles.contactScreenText}>LinkedIn 👨🏾‍💻</Text>
+        <Text style={styles.contactScreenText}>Github 👾</Text>
+        <Text style={styles.contactScreenText}>Spark ⚡️</Text>
       </View>
       <View style={styles.homeScreenBtnContainer}>
-        <SocialMediaBtns />
+        <View>
+          <View style={{ padding: 5 }}>
+            <AntDesign name="upcircleo" size={24} color="white" />
+          </View>
+          <Text style={styles.contactScreenTextSm}>Back to the top</Text>
+        </View>
       </View>
-      <View style={styles.homeScreenBtnContainer}>
-        <NextPageBtn />
-      </View>
+
       <View></View>
-    </ScrollView>
+    </m.ScrollView>
   );
 };
 
@@ -83,7 +84,7 @@ const styles = StyleSheet.create({
     marginTop: 10, // Adjust top margin as needed
     marginBottom: 10,
   },
-  homeScreenSubtitle: {
+  contactScreenSubtitle: {
     fontFamily: "lato-Regular",
     fontWeight: "400",
     fontStyle: "Regular",
@@ -91,7 +92,7 @@ const styles = StyleSheet.create({
     fontSize: "3vw",
     textAlign: "center",
   },
-  homeScreenLocationtitle: {
+  contactScreenText: {
     fontFamily: "lato-Regular",
     fontWeight: "400",
     fontStyle: "Regular",
@@ -99,9 +100,22 @@ const styles = StyleSheet.create({
     fontSize: "2.5vw",
     textAlign: "center",
   },
+  contactScreenTextSm: {
+    fontFamily: "lato-Regular",
+    fontWeight: "400",
+    fontStyle: "Regular",
+    color: "white",
+    fontSize: "1.5vw",
+    textAlign: "center",
+  },
+
   homeScreenBtnContainer: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+  },
+  contactBtnContainer: {
+    border: "2px rounded",
+    width: "25%",
   },
 });

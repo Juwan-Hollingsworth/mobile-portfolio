@@ -5,15 +5,19 @@ import AboutScreen from "./screens/AboutScreen";
 import ProjectScreen from "./screens/ProjectScreen";
 import BlankScreen from "./screens/BlankScreen";
 import ResumeScreen from "./screens/ResumeScreen";
+import ContactScreen from "./screens/ContactScreen";
 
 export default function App() {
   return (
     <View style={styles.container}>
+      {/* <Navbar /> */}
       {/* <HomeScreen /> */}
       {/* <AboutScreen /> */}
       {/* <ProjectScreen /> */}
       {/* <BlankScreen /> */}
-      <ResumeScreen />
+      {/* <ResumeScreen /> */}
+
+      <ContactScreen />
     </View>
   );
 }
