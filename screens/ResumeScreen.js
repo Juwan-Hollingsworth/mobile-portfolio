@@ -9,13 +9,15 @@ import {
   ScrollView,
   Button,
 } from "react-native";
-import React from "react";
-import SocialMediaBtns from "../components/SocialMediaBtns";
-import avatar from "../assets/avatar.png";
-import HeaderBtns from "../components/HeaderBtns";
-import NextPageBtn from "../components/NextPageBtn";
+import React, { Component } from "react";
+import { WebView } from "react-native-webview";
+import { NativeWebView } from "../components/NativeWebView";
 
-const AboutScreen = () => {
+import HeaderBtns from "../components/HeaderBtns";
+
+import PrevNextBtn from "../components/PrevNextBtn";
+
+const ResumeScreen = () => {
   return (
     <ScrollView style={styles.homescreenContainer}>
       {/* header area + btns  */}
@@ -31,26 +33,22 @@ const AboutScreen = () => {
       </View>
       {/* homescreen content  */}
       <View>
-        <Text style={styles.homeScreenTitle}>Juwan Hollingsworth</Text>
-        <View style={styles.homescreenImageContainer}>
-          <Image style={styles.homeScreenImage} source={avatar} />
+        <View style={styles.resumeContainer}>
+          <NativeWebView target="https://en.m.wikipedia.org" />
         </View>
 
-        <Text style={styles.homeScreenSubtitle}>Full Stack Developer</Text>
-        <Text style={styles.homeScreenLocationtitle}>Atlanta, GA 📍</Text>
+        {/* <MyInlineWeb /> */}
       </View>
-      <View style={styles.homeScreenBtnContainer}>
-        <SocialMediaBtns />
-      </View>
-      <View style={styles.homeScreenBtnContainer}>
-        <NextPageBtn />
+      <View style={styles.homeScreenBtnContainer}></View>
+      <View>
+        <PrevNextBtn />
       </View>
       <View></View>
     </ScrollView>
   );
 };
 
-export default AboutScreen;
+export default ResumeScreen;
 
 const styles = StyleSheet.create({
   headerArea: {
@@ -103,5 +101,11 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+  },
+  resumeContainer: {
+    flex: 1,
+
+    alignItems: "center",
+    justifyContent: "center",
   },
 });
