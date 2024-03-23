@@ -10,12 +10,25 @@ import {
   Button,
 } from "react-native";
 import React from "react";
-import SocialMediaBtns from "../components/SocialMediaBtns";
-import avatar from "../assets/avatar.png";
 import HeaderBtns from "../components/HeaderBtns";
-import NextPageBtn from "../components/NextPageBtn";
+import PrevNextBtn from "../components/PrevNextBtn";
+import { useState } from "react";
+import ProjectData from "../components/Modal/ProjectData";
+import Modal from "../components/Modal/Modal";
+import ProjectCard from "../components/ProjectCard";
 
-const AboutScreen = () => {
+const ProjectScreen = () => {
+  //portfolio logic
+  const [selectedProject, setSelectedProject] = useState(null);
+
+  const handleOpenModal = (project) => {
+    setSelectedProject(project);
+  };
+
+  const handleCloseModal = () => {
+    setSelectedProject(null);
+  };
+
   return (
     <ScrollView style={styles.homescreenContainer}>
       {/* header area + btns  */}
@@ -30,27 +43,63 @@ const AboutScreen = () => {
         />
       </View>
       {/* homescreen content  */}
-      <View>
-        <Text style={styles.homeScreenTitle}>Juwan Hollingsworth</Text>
-        <View style={styles.homescreenImageContainer}>
-          <Image style={styles.homeScreenImage} source={avatar} />
-        </View>
+      <View style={styles.projectScreenBtnContainer}>
+        <View>
+          <View></View>
+          <View>
+            <Text style={styles.projectScreenText}>
+              Projects I've worked on 👾
+            </Text>
+            <Text style={styles.projectScreenText}>
+              A collection of impactful projects that I have worked on
+              throughout my software engineering journey. From innovative web
+              applications to robust software solutions, this portfolio
+              showcases my expertise and the value I bring to the table.
+            </Text>
 
-        <Text style={styles.homeScreenSubtitle}>Full Stack Developer</Text>
-        <Text style={styles.homeScreenLocationtitle}>Atlanta, GA 📍</Text>
+            {/* Row 1 */}
+
+            <View style={styles.projectGrid}>
+              {ProjectData.map((project) => (
+                <ProjectCard
+                  key={project.id}
+                  image={{ uri: project.projectPic }}
+                  title={project.title}
+                  description={project.description}
+                />
+              ))}
+            </View>
+
+            {/* Project 1 Button */}
+            {/* <button
+              style={styles.projectViewBtn}
+              onClick={() =>
+                handleOpenModal(ProjectData.find((p) => p.id === 1))
+              }
+            >
+              View Project Details
+            </button> */}
+            {/* Open Modal  */}
+            {selectedProject && (
+              <Modal
+                title={selectedProject.title}
+                description={selectedProject.description}
+                skills={selectedProject.skills}
+                projectLink={selectedProject.projectLink}
+                githubRepo={selectedProject.ghRepo}
+                projectPic={selectedProject.projectPic}
+                onClose={handleCloseModal}
+              />
+            )}
+          </View>
+        </View>
+        <PrevNextBtn />
       </View>
-      <View style={styles.homeScreenBtnContainer}>
-        <SocialMediaBtns />
-      </View>
-      <View style={styles.homeScreenBtnContainer}>
-        <NextPageBtn />
-      </View>
-      <View></View>
     </ScrollView>
   );
 };
 
-export default AboutScreen;
+export default ProjectScreen;
 
 const styles = StyleSheet.create({
   headerArea: {
@@ -71,17 +120,17 @@ const styles = StyleSheet.create({
     fontSize: "6vw", //change size of title based on viewport
     textAlign: "center",
   },
-  homescreenImageContainer: {
+  aboutImageContainer: {
     justifyContent: "center",
     alignItems: "center",
   },
-  homeScreenImage: {
+  aboutScreenImage: {
     width: "80%",
     height: "80%", // Adjust size based on percentage of container width
     aspectRatio: 1, // Maintain aspect ratio
     resizeMode: "contain",
     marginTop: 10, // Adjust top margin as needed
-    marginBottom: 10,
+    border: "rounded",
   },
   homeScreenSubtitle: {
     fontFamily: "lato-Regular",
@@ -99,9 +148,32 @@ const styles = StyleSheet.create({
     fontSize: "2.5vw",
     textAlign: "center",
   },
-  homeScreenBtnContainer: {
+  projectScreenText: {
+    fontFamily: "lato-Regular",
+    fontWeight: "400",
+    fontStyle: "Regular",
+    color: "white",
+    fontSize: "2.5vw",
+    textAlign: "center",
+  },
+  projectScreenBtnContainer: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+  },
+  projectContainer: {
+    width: 250,
+    height: 250,
+    backgroundColor: "red",
+    margin: 5,
+  },
+  projectViewBtn: {
+    width: 100,
+  },
+  projectGrid: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "space-between",
+    padding: 10,
   },
 });
