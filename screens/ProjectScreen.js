@@ -60,15 +60,38 @@ const ProjectScreen = () => {
             {/* Row 1 */}
 
             <View style={styles.projectGrid}>
-              {ProjectData.map((project) => (
+              {ProjectData.slice(0, 3).map((project) => (
                 <ProjectCard
                   key={project.id}
                   image={{ uri: project.projectPic }}
                   title={project.title}
+                  skills={project.skills}
                   description={project.description}
                 />
               ))}
             </View>
+            <View style={styles.projectGrid}>
+              {ProjectData.slice(3, 6).map((project) => (
+                <ProjectCard
+                  key={project.id}
+                  image={{ uri: project.projectPic }}
+                  title={project.title}
+                  skills={project.skills}
+                  description={project.description}
+                />
+              ))}
+            </View>
+            {/* <View style={styles.projectGrid}>
+              {ProjectData.slice(6, 9).map((project) => (
+                <ProjectCard
+                  key={project.id}
+                  image={{ uri: project.projectPic }}
+                  title={project.title}
+                  skills={project.skills}
+                  description={project.description}
+                />
+              ))}
+            </View> */}
 
             {/* Project 1 Button */}
             {/* <button
@@ -165,7 +188,7 @@ const styles = StyleSheet.create({
     width: 250,
     height: 250,
     backgroundColor: "red",
-    margin: 5,
+    // margin: 5,
   },
   projectViewBtn: {
     width: 100,
@@ -174,6 +197,5 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     flexWrap: "wrap",
     justifyContent: "space-between",
-    padding: 10,
   },
 });

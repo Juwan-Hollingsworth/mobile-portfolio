@@ -6,13 +6,14 @@ import { WebView } from "react-native-webview";
 const NativeWebView = (props) => {
   // Check the platform the app is running on
   if (Platform.OS === "web") {
-    // If running on web, rendering an iframe with the target URL and styles
+    // If running on web, render an iframe w/ the target URL and styles
     return <iframe src={props.target} style={styles} />;
   }
+  // If running on other platforms, render a WebView component w/ the target URL
   return <WebView source={{ uri: props.target }} />;
 };
 
-export { NativeWebView }; // exporting as a named export
+export { NativeWebView }; // export as a named export
 
 const styles = {
   height: 500,
