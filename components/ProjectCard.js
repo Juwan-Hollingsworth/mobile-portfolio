@@ -57,6 +57,7 @@ const styles = StyleSheet.create({
     margin: 10,
     borderRadius: 10,
     overflow: "hidden",
+    padding: 10,
   },
   projCardImage: {
     width: "100%",
@@ -73,6 +74,7 @@ const styles = StyleSheet.create({
     width: "100%",
     height: "80%",
     resizeMode: "contain",
+    borderRadius: 10,
   },
   modalContent: {
     backgroundColor: "white",
@@ -105,5 +107,6 @@ const styles = StyleSheet.create({
     width: "70%",
     height: "60%",
     backgroundColor: "white",
+    borderRadius: 10,
   },
 });

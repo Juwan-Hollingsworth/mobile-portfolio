@@ -194,8 +194,9 @@ const styles = StyleSheet.create({
     width: 100,
   },
   projectGrid: {
+    width: "100%",
     flexDirection: "row",
-    flexWrap: "wrap",
-    justifyContent: "space-between",
+    // flexWrap: "wrap",
+    justifyContent: "center",
   },
 });
