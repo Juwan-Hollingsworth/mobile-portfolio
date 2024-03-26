@@ -8,14 +8,26 @@ import {
   Image,
   ScrollView,
   Button,
+  TouchableOpacity,
 } from "react-native";
 import React from "react";
 import SocialMediaBtns from "../components/SocialMediaBtns";
 import avatar from "../assets/avatar.png";
 import HeaderBtns from "../components/HeaderBtns";
 import NextPageBtn from "../components/NextPageBtn";
+import { useNavigation } from "@react-navigation/native";
+import { AntDesign } from "@expo/vector-icons";
 
 const HomeScreen = () => {
+  const navigation = useNavigation();
+
+  const goToAbout = () => {
+    navigation.navigate("About");
+  };
+
+  const goToContact = () => {
+    navigation.navigate("Contact");
+  };
   return (
     <ScrollView style={styles.homescreenContainer}>
       {/* header area + btns  */}
@@ -43,8 +55,11 @@ const HomeScreen = () => {
         <SocialMediaBtns />
       </View>
       <View style={styles.homeScreenBtnContainer}>
-        <NextPageBtn />
+        <TouchableOpacity onPress={goToAbout}>
+          <AntDesign name="downcircleo" size={24} color="white" />
+        </TouchableOpacity>
       </View>
+
       <View></View>
     </ScrollView>
   );
