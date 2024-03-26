@@ -10,9 +10,16 @@ import { animate, motion as m } from "framer-motion";
 
 import HeaderBtns from "../components/HeaderBtns";
 
+import { useNavigation } from "@react-navigation/native";
 import { AntDesign } from "@expo/vector-icons";
 
 const AboutScreen = () => {
+  const navigation = useNavigation();
+
+  const goToResume = () => {
+    navigation.navigate("Resume");
+  };
+
   return (
     <m.ScrollView
       style={styles.homescreenContainer}
@@ -60,11 +67,8 @@ const AboutScreen = () => {
 
       <View style={styles.homeScreenBtnContainer}>
         <View>
-          <View style={{ padding: 5 }}>
-            <TouchableOpacity
-              style={styles.contactBtnContainer}
-              onClick={() => {}}
-            >
+          <View style={styles.homeScreenBtnContainer}>
+            <TouchableOpacity onPress={goToResume}>
               <AntDesign name="upcircleo" size={24} color="white" />
             </TouchableOpacity>
           </View>

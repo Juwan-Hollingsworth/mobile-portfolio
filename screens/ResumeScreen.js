@@ -8,6 +8,7 @@ import {
   Image,
   ScrollView,
   Button,
+  TouchableOpacity,
 } from "react-native";
 import React, { Component } from "react";
 import { WebView } from "react-native-webview";
@@ -16,8 +17,20 @@ import { NativeWebView } from "../components/NativeWebView";
 import HeaderBtns from "../components/HeaderBtns";
 
 import PrevNextBtn from "../components/PrevNextBtn";
+import { useNavigation } from "@react-navigation/native";
+import { AntDesign } from "@expo/vector-icons";
 
 const ResumeScreen = () => {
+  // allow navigation to screens when clicked.
+  const navigation = useNavigation();
+
+  const goToProjects = () => {
+    navigation.navigate("Projects");
+  };
+
+  const goToContact = () => {
+    navigation.navigate("Contact");
+  };
   return (
     <ScrollView style={styles.homescreenContainer}>
       {/* header area + btns  */}
@@ -41,7 +54,14 @@ const ResumeScreen = () => {
       </View>
       <View style={styles.homeScreenBtnContainer}></View>
       <View>
-        <PrevNextBtn />
+        <View style={styles.homeScreenBtnContainer}>
+          <TouchableOpacity onPress={goToContact}>
+            <AntDesign name="downcircleo" size={24} color="white" />
+          </TouchableOpacity>
+          <TouchableOpacity onPress={goToProjects}>
+            <AntDesign name="upcircleo" size={24} color="white" />
+          </TouchableOpacity>
+        </View>
       </View>
       <View></View>
     </ScrollView>

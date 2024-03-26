@@ -7,7 +7,7 @@ import {
   Pressable,
   Image,
   ScrollView,
-  Button,
+  TouchableOpacity,
 } from "react-native";
 import React from "react";
 import HeaderBtns from "../components/HeaderBtns";
@@ -16,8 +16,19 @@ import { useState } from "react";
 import ProjectData from "../components/Modal/ProjectData";
 import Modal from "../components/Modal/Modal";
 import ProjectCard from "../components/ProjectCard";
+import { useNavigation } from "@react-navigation/native";
+import { AntDesign } from "@expo/vector-icons";
 
 const ProjectScreen = () => {
+  const navigation = useNavigation();
+
+  const goToAbout = () => {
+    navigation.navigate("About");
+  };
+
+  const goToResume = () => {
+    navigation.navigate("Resume");
+  };
   //portfolio logic
   const [selectedProject, setSelectedProject] = useState(null);
 
@@ -116,7 +127,14 @@ const ProjectScreen = () => {
             )}
           </View>
         </View>
-        <PrevNextBtn />
+        <View style={styles.homeScreenBtnContainer}>
+          <TouchableOpacity onPress={goToResume}>
+            <AntDesign name="downcircleo" size={24} color="white" />
+          </TouchableOpacity>
+          <TouchableOpacity onPress={goToAbout}>
+            <AntDesign name="upcircleo" size={24} color="white" />
+          </TouchableOpacity>
+        </View>
       </View>
     </ScrollView>
   );
@@ -125,6 +143,11 @@ const ProjectScreen = () => {
 export default ProjectScreen;
 
 const styles = StyleSheet.create({
+  homeScreenBtnContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
   headerArea: {
     flexDirection: "row",
     justifyContent: "space-between",

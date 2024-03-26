@@ -25,9 +25,6 @@ const HomeScreen = () => {
     navigation.navigate("About");
   };
 
-  const goToContact = () => {
-    navigation.navigate("Contact");
-  };
   return (
     <ScrollView style={styles.homescreenContainer}>
       {/* header area + btns  */}

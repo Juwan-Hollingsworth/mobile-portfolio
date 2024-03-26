@@ -25,7 +25,7 @@ export default function App() {
           options={{ headerShown: false }}
         />
         <Stack.Screen
-          name="Project"
+          name="Projects"
           component={ProjectScreen}
           options={{ headerShown: false }}
         />
