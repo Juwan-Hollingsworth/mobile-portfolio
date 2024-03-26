@@ -32,17 +32,32 @@ const AboutScreen = () => {
         />
       </View>
       {/* homescreen content  */}
-      <View style={styles.contactContainer}>
-        <Text style={styles.contactScreenSubtitle}>Let's Connect 📶</Text>
-        <TouchableOpacity style={styles.contactBtnContainer}>
-          <Text style={styles.contactScreenText}>Email 📩</Text>
-        </TouchableOpacity>
-
-        <Text style={styles.contactScreenText}>Email 📩</Text>
-        <Text style={styles.contactScreenText}>LinkedIn 👨🏾‍💻</Text>
-        <Text style={styles.contactScreenText}>Github 👾</Text>
-        <Text style={styles.contactScreenText}>Spark ⚡️</Text>
+      <View>
+        <Text style={styles.contactScreenSubtitle}>Let's Connect 📶</Text>{" "}
       </View>
+      <View style={styles.allLinksContainer}>
+        <View style={styles.linkContainer}>
+          <TouchableOpacity>
+            <Text style={styles.contactScreenText}>Email 📩</Text>{" "}
+          </TouchableOpacity>
+        </View>
+        <View style={styles.linkContainer}>
+          <TouchableOpacity>
+            <Text style={styles.contactScreenText}>LinkedIn 👨🏾‍💻</Text>{" "}
+          </TouchableOpacity>
+        </View>
+        <View style={styles.linkContainer}>
+          <TouchableOpacity>
+            <Text style={styles.contactScreenText}>Github 👾</Text>{" "}
+          </TouchableOpacity>
+        </View>
+        <View style={styles.linkContainer}>
+          <TouchableOpacity>
+            <Text style={styles.contactScreenText}>Spark ⚡️</Text>{" "}
+          </TouchableOpacity>
+        </View>
+      </View>
+
       <View style={styles.homeScreenBtnContainer}>
         <View>
           <View style={{ padding: 5 }}>
@@ -56,8 +71,6 @@ const AboutScreen = () => {
           <Text style={styles.contactScreenTextSm}>Back to the top</Text>
         </View>
       </View>
-
-      <View></View>
     </m.ScrollView>
   );
 };
@@ -65,14 +78,24 @@ const AboutScreen = () => {
 export default AboutScreen;
 
 const styles = StyleSheet.create({
+  allLinksContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  linkContainer: {
+    height: 30,
+    width: "25%",
+    marginHorizontal: 10,
+    backgroundColor: "transparent",
+
+    border: "1px solid #fff",
+    borderRadius: "5px",
+    transition: "background-color 0.3s, color 0.3s",
+  },
   contactBtnContainer: {
     border: "2px solid white", // Border with white color
-    borderRadius: "9999px", // For a rounded shape
-    padding: "0.75rem 2rem", // Padding for the button
-    backgroundColor: "transparent", // Transparent background
-    color: "white", // White text color
-    transition: "background-color 0.3s, color 0.3s", // Transition effect for color change
-    opacity: 0,
+    backgroundColor: "red",
   },
   headerArea: {
     flexDirection: "row",

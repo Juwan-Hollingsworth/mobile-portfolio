@@ -13,11 +13,11 @@ export default function App() {
       {/* <Navbar /> */}
       {/* <HomeScreen /> */}
       {/* <AboutScreen /> */}
-      <ProjectScreen />
-      {/* <BlankScreen /> */}
+      {/* <ProjectScreen /> */}
       {/* <ResumeScreen /> */}
 
-      {/* <ContactScreen /> */}
+      <ContactScreen />
+      {/* <BlankScreen /> */}
     </View>
   );
 }

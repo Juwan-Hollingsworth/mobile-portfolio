@@ -4,7 +4,7 @@ const ProjectData = [
     title: "Marketing Agency Design & Implement.",
     description:
       "The redesign of Spark Social's website highlights my user experience design skills as well as the ability to develop in different technical settings. Using Javascript, React, and Figma, I created a functional and visually appealing interface that showcases my versatility and ability to enhance brand online presence.",
-    skills: ["HTML ", "CSS ", "JavaScript", "React", "Next.js"],
+    skills: ["HTML ", "CSS ", "JmavaScript", "React", "Next.js"],
     projectPic:
       "https://i.imgur.com/BMIqhVP_d.webp?maxwidth=1520&fidelity=grand",
     githubRepo: "https://github.com/",
