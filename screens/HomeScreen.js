@@ -9,6 +9,7 @@ import {
   ScrollView,
   Button,
   TouchableOpacity,
+  Dimensions,
 } from "react-native";
 import React from "react";
 import SocialMediaBtns from "../components/SocialMediaBtns";
@@ -17,6 +18,22 @@ import HeaderBtns from "../components/HeaderBtns";
 import NextPageBtn from "../components/NextPageBtn";
 import { useNavigation } from "@react-navigation/native";
 import { AntDesign } from "@expo/vector-icons";
+
+const { width, height } = Dimensions.get("window"); // Get the screen dimensions
+
+console.log("w", width);
+console.log("h", height);
+
+const getViewPortClass = (w, h) => {
+  if (w >= 1400 && h >= 500) {
+    return "lgScreen";
+  } else {
+    return "styles";
+  }
+};
+
+const cstyles = getViewPortClass(width, height);
+console.log(cstyles);
 
 const HomeScreen = () => {
   const navigation = useNavigation();
@@ -39,7 +56,7 @@ const HomeScreen = () => {
         />
       </View>
       {/* homescreen content  */}
-      <View>
+      <View style={[cstyles.contentContainer, { padding: width * 0.05 }]}>
         <Text style={styles.homeScreenTitle}>Juwan Hollingsworth</Text>
         <View style={styles.homescreenImageContainer}>
           <Image style={styles.homeScreenImage} source={avatar} />
@@ -56,8 +73,6 @@ const HomeScreen = () => {
           <AntDesign name="downcircleo" size={24} color="white" />
         </TouchableOpacity>
       </View>
-
-      <View></View>
     </ScrollView>
   );
 };
@@ -65,6 +80,11 @@ const HomeScreen = () => {
 export default HomeScreen;
 
 const styles = StyleSheet.create({
+  contentContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
   headerArea: {
     flexDirection: "row",
     justifyContent: "space-between",
@@ -80,40 +100,48 @@ const styles = StyleSheet.create({
     fontWeight: "400",
     fontStyle: "italic",
     color: "white",
-    fontSize: "6vw", //change size of title based on viewport
+    fontSize: width * 0.04, // Adjust size based on viewport
     textAlign: "center",
+    marginBottom: height * 0.02, // Adjust spacing based on viewport
   },
   homescreenImageContainer: {
     justifyContent: "center",
     alignItems: "center",
+    marginBottom: height * 0.02, // Adjust spacing based on viewport
   },
   homeScreenImage: {
-    width: "80%",
-    height: "80%", // Adjust size based on percentage of container width
-    aspectRatio: 1, // Maintain aspect ratio
+    width: width * 0.4,
+    height: width * 0.4, // Adjust size based on percentage of container width
     resizeMode: "contain",
-    marginTop: 10, // Adjust top margin as needed
-    marginBottom: 10,
   },
   homeScreenSubtitle: {
     fontFamily: "lato-Regular",
     fontWeight: "400",
     fontStyle: "Regular",
     color: "white",
-    fontSize: "3vw",
+    fontSize: width * 0.04,
     textAlign: "center",
+    marginBottom: height * 0.02,
   },
   homeScreenLocationtitle: {
     fontFamily: "lato-Regular",
     fontWeight: "400",
     fontStyle: "Regular",
     color: "white",
-    fontSize: "2.5vw",
+    fontSize: width * 0.035,
     textAlign: "center",
+    marginBottom: height * 0.02,
   },
   homeScreenBtnContainer: {
-    flex: 1,
     justifyContent: "center",
     alignItems: "center",
+    marginBottom: height * 0.02,
+  },
+});
+const lgScreen = StyleSheet.create({
+  homeScreenImage: {
+    width: width * 0.8,
+    height: width * 0.8, // Adjust size based on percentage of container width
+    resizeMode: "contain",
   },
 });
