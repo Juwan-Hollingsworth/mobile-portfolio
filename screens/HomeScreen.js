@@ -56,7 +56,7 @@ const HomeScreen = () => {
         />
       </View>
       {/* homescreen content  */}
-      <View style={[cstyles.contentContainer, { padding: width * 0.05 }]}>
+      <View style={styles.contentContainer}>
         <Text style={styles.homeScreenTitle}>Juwan Hollingsworth</Text>
         <View style={styles.homescreenImageContainer}>
           <Image style={styles.homeScreenImage} source={avatar} />
@@ -139,6 +139,15 @@ const styles = StyleSheet.create({
   },
 });
 const lgScreen = StyleSheet.create({
+  homeScreenTitle: {
+    fontFamily: "libre baskerville",
+    fontWeight: "400",
+    fontStyle: "italic",
+    color: "white",
+    fontSize: width * 0.08, // Adjust size based on viewport
+    textAlign: "center",
+    marginBottom: height * 0.02, // Adjust spacing based on viewport
+  },
   homeScreenImage: {
     width: width * 0.8,
     height: width * 0.8, // Adjust size based on percentage of container width
