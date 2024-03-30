@@ -14,10 +14,28 @@ import {
 import React from "react";
 import SocialMediaBtns from "../components/SocialMediaBtns";
 import avatar from "../assets/avatar.png";
-import HeaderBtns from "../components/HeaderBtns";
+
 import NextPageBtn from "../components/NextPageBtn";
 import { useNavigation } from "@react-navigation/native";
 import { AntDesign } from "@expo/vector-icons";
+import { useMediaQuery } from "react-responsive";
+
+const Desktop = ({ children }) => {
+  const isDesktop = useMediaQuery({ minWidth: 992 });
+  return isDesktop ? children : null;
+};
+const Tablet = ({ children }) => {
+  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 991 });
+  return isTablet ? children : null;
+};
+const Mobile = ({ children }) => {
+  const isMobile = useMediaQuery({ maxWidth: 767 });
+  return isMobile ? children : null;
+};
+const Default = ({ children }) => {
+  const isNotMobile = useMediaQuery({ minWidth: 768 });
+  return isNotMobile ? children : null;
+};
 
 const { width, height } = Dimensions.get("window"); // Get the screen dimensions
 
@@ -45,16 +63,7 @@ const HomeScreen = () => {
   return (
     <ScrollView style={styles.homescreenContainer}>
       {/* header area + btns  */}
-      <View style={styles.headerArea}>
-        <HeaderBtns
-          title="Freelance"
-          onPress={() => console.log("Button pressed")}
-        />
-        <HeaderBtns
-          title="Resume"
-          onPress={() => console.log("Button pressed")}
-        />
-      </View>
+
       {/* homescreen content  */}
       <View style={styles.contentContainer}>
         <Text style={styles.homeScreenTitle}>Juwan Hollingsworth</Text>

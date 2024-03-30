@@ -7,40 +7,47 @@ import ResumeScreen from "./screens/ResumeScreen";
 import ContactScreen from "./screens/ContactScreen";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 const Stack = createStackNavigator();
 
 export default function App() {
   return (
-    <NavigationContainer initialRouteName="Home">
-      <Stack.Navigator>
-        <Stack.Screen
-          name="Home"
-          component={HomeScreen}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="About"
-          component={AboutScreen}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="Projects"
-          component={ProjectScreen}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="Resume"
-          component={ResumeScreen}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="Contact"
-          component={ContactScreen}
-          options={{ headerShown: false }}
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <View style={styles.container}>
+      <Header />
+
+      <NavigationContainer initialRouteName="Home">
+        <Stack.Navigator>
+          <Stack.Screen
+            name="Home"
+            component={HomeScreen}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="About"
+            component={AboutScreen}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="Projects"
+            component={ProjectScreen}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="Resume"
+            component={ResumeScreen}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="Contact"
+            component={ContactScreen}
+            options={{ headerShown: false }}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
+
+      <Footer />
+    </View>
     // <View style={styles.container}>
     //   {/* <Navbar /> */}
     //   {/* <HomeScreen /> */}
