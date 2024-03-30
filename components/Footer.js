@@ -29,8 +29,8 @@ const styles = StyleSheet.create({
   footerContainer: {
     justifyContent: "center",
     alignItems: "center",
-
-    backgroundColor: "red",
+    backgroundColor: "#152238",
+    // backgroundColor: "red",
   },
   footerBtnContainer: {
     padding: 15,

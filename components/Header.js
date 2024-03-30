@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
     padding: 15,
   },
   homescreenContainer: {
-    // backgroundColor: "#152238",
-    backgroundColor: "red",
+    backgroundColor: "#152238",
+    // backgroundColor: "red",
   },
 });

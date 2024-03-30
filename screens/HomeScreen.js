@@ -20,23 +20,6 @@ import { useNavigation } from "@react-navigation/native";
 import { AntDesign } from "@expo/vector-icons";
 import { useMediaQuery } from "react-responsive";
 
-const Desktop = ({ children }) => {
-  const isDesktop = useMediaQuery({ minWidth: 992 });
-  return isDesktop ? children : null;
-};
-const Tablet = ({ children }) => {
-  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 991 });
-  return isTablet ? children : null;
-};
-const Mobile = ({ children }) => {
-  const isMobile = useMediaQuery({ maxWidth: 767 });
-  return isMobile ? children : null;
-};
-const Default = ({ children }) => {
-  const isNotMobile = useMediaQuery({ minWidth: 768 });
-  return isNotMobile ? children : null;
-};
-
 const { width, height } = Dimensions.get("window"); // Get the screen dimensions
 
 console.log("w", width);
@@ -66,21 +49,20 @@ const HomeScreen = () => {
 
       {/* homescreen content  */}
       <View style={styles.contentContainer}>
-        <Text style={styles.homeScreenTitle}>Juwan Hollingsworth</Text>
+        <View>
+          <Text style={styles.homeScreenTitle}>Juwan Hollingsworth</Text>
+        </View>
+
         <View style={styles.homescreenImageContainer}>
           <Image style={styles.homeScreenImage} source={avatar} />
         </View>
-
-        <Text style={styles.homeScreenSubtitle}>Full Stack Developer</Text>
-        <Text style={styles.homeScreenLocationtitle}>Atlanta, GA 📍</Text>
+        <View style={styles.lowerTitles}>
+          <Text style={styles.homeScreenSubtitle}>Full Stack Developer</Text>
+          <Text style={styles.homeScreenLocationtitle}>Atlanta, GA 📍</Text>
+        </View>
       </View>
       <View style={styles.homeScreenBtnContainer}>
         <SocialMediaBtns />
-      </View>
-      <View style={styles.homeScreenBtnContainer}>
-        <TouchableOpacity onPress={goToAbout}>
-          <AntDesign name="downcircleo" size={24} color="white" />
-        </TouchableOpacity>
       </View>
     </ScrollView>
   );
@@ -93,6 +75,9 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+  },
+  lowerTitles: {
+    marginTop: -10,
   },
   headerArea: {
     flexDirection: "row",
@@ -109,18 +94,18 @@ const styles = StyleSheet.create({
     fontWeight: "400",
     fontStyle: "italic",
     color: "white",
-    fontSize: width * 0.04, // Adjust size based on viewport
+    fontSize: "5vw", // Adjust size based on viewport
     textAlign: "center",
-    marginBottom: height * 0.02, // Adjust spacing based on viewport
   },
   homescreenImageContainer: {
     justifyContent: "center",
     alignItems: "center",
-    marginBottom: height * 0.02, // Adjust spacing based on viewport
+    // marginBottom: height * 0.02, // Adjust spacing based on viewport
   },
   homeScreenImage: {
-    width: width * 0.4,
-    height: width * 0.4, // Adjust size based on percentage of container width
+    width: "50vh",
+    height: "50vh",
+    // Adjust size based on percentage of container width
     resizeMode: "contain",
   },
   homeScreenSubtitle: {
@@ -128,38 +113,21 @@ const styles = StyleSheet.create({
     fontWeight: "400",
     fontStyle: "Regular",
     color: "white",
-    fontSize: width * 0.04,
+    fontSize: "3vw",
     textAlign: "center",
-    marginBottom: height * 0.02,
+    // marginBottom: height * 0.02,
   },
   homeScreenLocationtitle: {
     fontFamily: "lato-Regular",
     fontWeight: "400",
     fontStyle: "Regular",
     color: "white",
-    fontSize: width * 0.035,
+    fontSize: "3vw",
     textAlign: "center",
-    marginBottom: height * 0.02,
+    // marginBottom: height * 0.02,
   },
   homeScreenBtnContainer: {
-    justifyContent: "center",
+    justifyContent: "flex-end",
     alignItems: "center",
-    marginBottom: height * 0.02,
-  },
-});
-const lgScreen = StyleSheet.create({
-  homeScreenTitle: {
-    fontFamily: "libre baskerville",
-    fontWeight: "400",
-    fontStyle: "italic",
-    color: "white",
-    fontSize: width * 0.08, // Adjust size based on viewport
-    textAlign: "center",
-    marginBottom: height * 0.02, // Adjust spacing based on viewport
-  },
-  homeScreenImage: {
-    width: width * 0.8,
-    height: width * 0.8, // Adjust size based on percentage of container width
-    resizeMode: "contain",
   },
 });
