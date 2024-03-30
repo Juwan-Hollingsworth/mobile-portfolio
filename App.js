@@ -44,9 +44,8 @@ export default function App() {
             options={{ headerShown: false }}
           />
         </Stack.Navigator>
+        <Footer />
       </NavigationContainer>
-
-      <Footer />
     </View>
     // <View style={styles.container}>
     //   {/* <Navbar /> */}

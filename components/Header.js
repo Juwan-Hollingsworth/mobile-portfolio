@@ -5,7 +5,7 @@ import HeaderBtns from "../components/HeaderBtns";
 
 const Header = () => {
   return (
-    <View>
+    <View style={styles.homescreenContainer}>
       {/* header area + btns  */}
       <View style={styles.headerArea}>
         <HeaderBtns
@@ -28,16 +28,10 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     paddingHorizontal: 16,
-    paddingTop: 16,
+    padding: 15,
   },
   homescreenContainer: {
     // backgroundColor: "#152238",
     backgroundColor: "red",
-    flexDirection: "row", // Horizontal layout
-
-    paddingHorizontal: 20, // Add padding horizontally
-    paddingTop: 40, // Adjust top padding to accommodate status bar
-    height: 80, // Set header height
-    width: "100%", // Take up full width of the screen
   },
 });
