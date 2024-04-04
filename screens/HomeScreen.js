@@ -19,6 +19,7 @@ import NextPageBtn from "../components/NextPageBtn";
 import { useNavigation } from "@react-navigation/native";
 import { AntDesign } from "@expo/vector-icons";
 import { useMediaQuery } from "react-responsive";
+import Footer from "../components/Footer";
 
 const { width, height } = Dimensions.get("window"); // Get the screen dimensions
 
@@ -33,6 +34,7 @@ const getViewPortClass = (w, h) => {
   }
 };
 
+const Home = "Home";
 const cstyles = getViewPortClass(width, height);
 console.log(cstyles);
 
@@ -63,6 +65,7 @@ const HomeScreen = () => {
       </View>
       <View style={styles.homeScreenBtnContainer}>
         <SocialMediaBtns />
+        <Footer currentPage={Home} />
       </View>
     </ScrollView>
   );

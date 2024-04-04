@@ -12,6 +12,7 @@ import HeaderBtns from "../components/HeaderBtns";
 
 import { useNavigation } from "@react-navigation/native";
 import { AntDesign } from "@expo/vector-icons";
+import Footer from "../components/Footer";
 
 const AboutScreen = () => {
   const navigation = useNavigation();
@@ -19,6 +20,8 @@ const AboutScreen = () => {
   const goToResume = () => {
     navigation.navigate("Resume");
   };
+
+  const Contact = "Contact";
 
   return (
     <m.ScrollView
@@ -67,11 +70,7 @@ const AboutScreen = () => {
 
       <View style={styles.homeScreenBtnContainer}>
         <View>
-          <View style={styles.homeScreenBtnContainer}>
-            <TouchableOpacity onPress={goToResume}>
-              <AntDesign name="upcircleo" size={24} color="white" />
-            </TouchableOpacity>
-          </View>
+          <Footer currentPage={Contact} />
           <Text style={styles.contactScreenTextSm}>Back to the top</Text>
         </View>
       </View>

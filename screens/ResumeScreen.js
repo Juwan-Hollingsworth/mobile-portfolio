@@ -19,6 +19,7 @@ import HeaderBtns from "../components/HeaderBtns";
 import PrevNextBtn from "../components/PrevNextBtn";
 import { useNavigation } from "@react-navigation/native";
 import { AntDesign } from "@expo/vector-icons";
+import Footer from "../components/Footer";
 
 const ResumeScreen = () => {
   // allow navigation to screens when clicked.
@@ -31,6 +32,8 @@ const ResumeScreen = () => {
   const goToContact = () => {
     navigation.navigate("Contact");
   };
+
+  const Resume = "Resume";
   return (
     <ScrollView style={styles.homescreenContainer}>
       {/* header area + btns  */}
@@ -54,14 +57,7 @@ const ResumeScreen = () => {
       </View>
       <View style={styles.homeScreenBtnContainer}></View>
       <View>
-        <View style={styles.homeScreenBtnContainer}>
-          <TouchableOpacity onPress={goToContact}>
-            <AntDesign name="downcircleo" size={24} color="white" />
-          </TouchableOpacity>
-          <TouchableOpacity onPress={goToProjects}>
-            <AntDesign name="upcircleo" size={24} color="white" />
-          </TouchableOpacity>
-        </View>
+        <Footer currentPage={Resume} />
       </View>
       <View></View>
     </ScrollView>

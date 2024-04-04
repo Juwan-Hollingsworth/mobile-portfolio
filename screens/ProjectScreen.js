@@ -18,6 +18,7 @@ import Modal from "../components/Modal/Modal";
 import ProjectCard from "../components/ProjectCard";
 import { useNavigation } from "@react-navigation/native";
 import { AntDesign } from "@expo/vector-icons";
+import Footer from "../components/Footer";
 
 const ProjectScreen = () => {
   const navigation = useNavigation();
@@ -29,6 +30,8 @@ const ProjectScreen = () => {
   const goToResume = () => {
     navigation.navigate("Resume");
   };
+
+  const Projects = "Projects";
   //portfolio logic
   const [selectedProject, setSelectedProject] = useState(null);
 
@@ -127,14 +130,7 @@ const ProjectScreen = () => {
             )}
           </View>
         </View>
-        <View style={styles.homeScreenBtnContainer}>
-          <TouchableOpacity onPress={goToResume}>
-            <AntDesign name="downcircleo" size={24} color="white" />
-          </TouchableOpacity>
-          <TouchableOpacity onPress={goToAbout}>
-            <AntDesign name="upcircleo" size={24} color="white" />
-          </TouchableOpacity>
-        </View>
+        <Footer currentPage={Projects} />
       </View>
     </ScrollView>
   );

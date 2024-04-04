@@ -19,6 +19,7 @@ import NextPageBtn from "../components/NextPageBtn";
 import PrevNextBtn from "../components/PrevNextBtn";
 import { useNavigation } from "@react-navigation/native";
 import { AntDesign } from "@expo/vector-icons";
+import Footer from "../components/Footer";
 
 const AboutScreen = () => {
   const navigation = useNavigation();
@@ -30,6 +31,8 @@ const AboutScreen = () => {
   const goToProjects = () => {
     navigation.navigate("Projects");
   };
+
+  const About = "About";
   return (
     <ScrollView style={styles.homescreenContainer}>
       {/* header area + btns  */}
@@ -68,13 +71,8 @@ const AboutScreen = () => {
             </Text>
           </View>
         </View>
-        <View style={styles.homeScreenBtnContainer}>
-          <TouchableOpacity onPress={goToProjects}>
-            <AntDesign name="downcircleo" size={24} color="white" />
-          </TouchableOpacity>
-          <TouchableOpacity onPress={goToHome}>
-            <AntDesign name="upcircleo" size={24} color="white" />
-          </TouchableOpacity>
+        <View>
+          <Footer currentPage={About} />
         </View>
       </View>
       <View></View>
