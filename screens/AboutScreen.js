@@ -1,60 +1,27 @@
-import {
-  StyleSheet,
-  Text,
-  View,
-  SafeAreaView,
-  Alert,
-  Pressable,
-  Image,
-  ScrollView,
-  Button,
-  TouchableOpacity,
-} from "react-native";
+import { StyleSheet, Text, View, Image, ScrollView } from "react-native";
 import React from "react";
-import SocialMediaBtns from "../components/SocialMediaBtns";
-import avatar from "../assets/avatar.png";
+
 import juwan from "../assets/juwan.jpg";
 import HeaderBtns from "../components/HeaderBtns";
-import NextPageBtn from "../components/NextPageBtn";
-import PrevNextBtn from "../components/PrevNextBtn";
+
 import { useNavigation } from "@react-navigation/native";
-import { AntDesign } from "@expo/vector-icons";
+
 import Footer from "../components/Footer";
 
 const AboutScreen = () => {
-  const navigation = useNavigation();
-
-  const goToHome = () => {
-    navigation.navigate("Home");
-  };
-
-  const goToProjects = () => {
-    navigation.navigate("Projects");
-  };
-
   const About = "About";
   return (
-    <ScrollView style={styles.homescreenContainer}>
-      {/* header area + btns  */}
-      <View style={styles.headerArea}>
-        <HeaderBtns
-          title="Freelance"
-          onPress={() => console.log("Button pressed")}
-        />
-        <HeaderBtns
-          title="Resume"
-          onPress={() => console.log("Button pressed")}
-        />
-      </View>
-      {/* homescreen content  */}
-
-      <View style={styles.homeScreenBtnContainer}>
+    <ScrollView
+      style={styles.aboutContainer}
+      contentContainerStyle={styles.containerCenter}
+    >
+      <View>
         <View>
-          <View>
-            <Image source={juwan} style={styles.aboutScreenImage} />
+          <View style={styles.aboutImageContainer}>
+            <Image source={juwan} style={styles.aboutImage} />
           </View>
-          <View>
-            <Text style={styles.aboutScreenText}>
+          <View style={styles.aboutTextContainer}>
+            <Text style={styles.aboutText}>
               Hi there, I'm Juwan, a software engineer and college graduate with
               a bachelor's in Computer Science. I'm passionate about creating
               things that live on the web, and I've had some pretty cool
@@ -83,63 +50,40 @@ const AboutScreen = () => {
 export default AboutScreen;
 
 const styles = StyleSheet.create({
-  headerArea: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    paddingHorizontal: 16,
-    paddingTop: 16,
-  },
-  homescreenContainer: {
+  aboutContainer: {
     backgroundColor: "#152238",
     flex: 1,
   },
-  homeScreenTitle: {
-    fontFamily: "libre baskerville",
-    fontWeight: "400",
-    fontStyle: "italic",
-    color: "white",
-    fontSize: "6vw", //change size of title based on viewport
-    textAlign: "center",
-  },
+
   aboutImageContainer: {
     justifyContent: "center",
     alignItems: "center",
   },
-  aboutScreenImage: {
+  aboutImage: {
     width: "80%",
     height: "80%", // Adjust size based on percentage of container width
     aspectRatio: 1, // Maintain aspect ratio
-    resizeMode: "contain",
+    borderRadius: 10,
     marginTop: 10, // Adjust top margin as needed
-    border: "rounded",
   },
-  homeScreenSubtitle: {
-    fontFamily: "lato-Regular",
-    fontWeight: "400",
-    fontStyle: "Regular",
-    color: "white",
-    fontSize: "3vw",
-    textAlign: "center",
-  },
-  homeScreenLocationtitle: {
-    fontFamily: "lato-Regular",
-    fontWeight: "400",
-    fontStyle: "Regular",
-    color: "white",
-    fontSize: "2.5vw",
-    textAlign: "center",
-  },
-  aboutScreenText: {
-    fontFamily: "lato-Regular",
-    fontWeight: "400",
-    fontStyle: "Regular",
-    color: "white",
-    fontSize: "2.5vw",
-    textAlign: "center",
-  },
-  homeScreenBtnContainer: {
+  containerCenter: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+  },
+
+  aboutText: {
+    fontFamily: "lato-Regular",
+    fontWeight: "400",
+    fontStyle: "Regular",
+    color: "white",
+    fontSize: "2.5vw",
+    textAlign: "center",
+    width: "80%",
+  },
+
+  aboutTextContainer: {
+    alignItems: "center",
+    justifyContent: "center",
   },
 });
