@@ -188,7 +188,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   projectScreenBtnContainer: {
-    flex: 1,
+    flex: 3,
     justifyContent: "center",
     alignItems: "center",
   },
