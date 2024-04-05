@@ -3,7 +3,7 @@ import HomeScreen from "./screens/HomeScreen";
 import AboutScreen from "./screens/AboutScreen";
 import ProjectScreen from "./screens/ProjectScreen";
 import BlankScreen from "./screens/BlankScreen";
-import draft from "./screens/draft";
+import draft from "./screens/ContactScreen";
 import ResumeScreen from "./screens/ResumeScreen";
 import ContactScreen from "./screens/ContactScreen";
 import { NavigationContainer } from "@react-navigation/native";
@@ -20,8 +20,8 @@ export default function App() {
       <NavigationContainer initialRouteName="Draft">
         <Stack.Navigator>
           <Stack.Screen
-            name="Draft"
-            component={draft}
+            name="Resume"
+            component={ResumeScreen}
             options={{ headerShown: false }}
           />
           <Stack.Screen
@@ -39,11 +39,11 @@ export default function App() {
             component={ProjectScreen}
             options={{ headerShown: false }}
           />
-          <Stack.Screen
+          {/* <Stack.Screen
             name="Resume"
             component={ResumeScreen}
             options={{ headerShown: false }}
-          />
+          /> */}
           <Stack.Screen
             name="Contact"
             component={ContactScreen}

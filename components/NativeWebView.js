@@ -1,7 +1,10 @@
 import React from "react";
 import { Platform } from "react-native";
 import { WebView } from "react-native-webview";
-
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from "react-native-responsive-screen";
 // Define a functional component NativeWebView which accepts props
 const NativeWebView = (props) => {
   // Check the platform the app is running on
@@ -16,6 +19,5 @@ const NativeWebView = (props) => {
 export { NativeWebView }; // export as a named export
 
 const styles = {
-  height: 500,
-  width: 700,
+  height: hp(100),
 };

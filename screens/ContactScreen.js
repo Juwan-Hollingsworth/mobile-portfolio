@@ -2,20 +2,18 @@ import {
   StyleSheet,
   Text,
   View,
-  ScrollView,
   TouchableOpacity,
+  Pressable,
 } from "react-native";
 import React from "react";
 import { animate, motion as m } from "framer-motion";
 
-import HeaderBtns from "../components/HeaderBtns";
-
-import { useNavigation } from "@react-navigation/native";
-import { AntDesign } from "@expo/vector-icons";
 import Footer from "../components/Footer";
 
 const AboutScreen = () => {
   const Contact = "Contact";
+
+  const onPress = () => {};
 
   return (
     <m.ScrollView
@@ -25,40 +23,28 @@ const AboutScreen = () => {
       transition={{ duration: 0.75, ease: "easeOut" }}
     >
       {/* header area + btns  */}
+      <View>
+        <Text style={styles.contactTitle}>Let's Connect 📶</Text>
+      </View>
+      <View style={styles.contactContainer}>
+        <Pressable style={styles.buttonContact} onPress={onPress}>
+          <Text style={styles.contactText}>Email 📩</Text>
+        </Pressable>
+        <Pressable style={styles.buttonContact} onPress={onPress}>
+          <Text style={styles.contactText}>LinkedIn 👨🏾‍💻</Text>
+        </Pressable>
+        <Pressable style={styles.buttonContact} onPress={onPress}>
+          <Text style={styles.contactText}>Github 👾</Text>
+        </Pressable>
+        <Pressable style={styles.buttonContact} onPress={onPress}>
+          <Text style={styles.contactText}>Spark ⚡️</Text>
+        </Pressable>
+      </View>
+      <View>
+        <Footer />
+      </View>
 
       {/* homescreen content  */}
-      <View>
-        <Text style={styles.contactScreenSubtitle}>Let's Connect 📶</Text>{" "}
-      </View>
-      <View style={styles.allLinksContainer}>
-        <View style={styles.linkContainer}>
-          <TouchableOpacity>
-            <Text style={styles.contactScreenText}>Email 📩</Text>{" "}
-          </TouchableOpacity>
-        </View>
-        <View style={styles.linkContainer}>
-          <TouchableOpacity>
-            <Text style={styles.contactScreenText}>LinkedIn 👨🏾‍💻</Text>{" "}
-          </TouchableOpacity>
-        </View>
-        <View style={styles.linkContainer}>
-          <TouchableOpacity>
-            <Text style={styles.contactScreenText}>Github 👾</Text>{" "}
-          </TouchableOpacity>
-        </View>
-        <View style={styles.linkContainer}>
-          <TouchableOpacity>
-            <Text style={styles.contactScreenText}>Spark ⚡️</Text>{" "}
-          </TouchableOpacity>
-        </View>
-      </View>
-
-      <View style={styles.homeScreenBtnContainer}>
-        <View>
-          <Footer currentPage={Contact} />
-          <Text style={styles.contactScreenTextSm}>Back to the top</Text>
-        </View>
-      </View>
     </m.ScrollView>
   );
 };
@@ -66,87 +52,79 @@ const AboutScreen = () => {
 export default AboutScreen;
 
 const styles = StyleSheet.create({
-  allLinksContainer: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  linkContainer: {
-    height: 30,
-    width: "25%",
-    marginHorizontal: 10,
-    backgroundColor: "transparent",
-
-    border: "1px solid #fff",
-    borderRadius: "5px",
-    transition: "background-color 0.3s, color 0.3s",
-  },
-  contactBtnContainer: {
-    border: "2px solid white", // Border with white color
-    backgroundColor: "red",
-  },
-  headerArea: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    paddingHorizontal: 16,
-    paddingTop: 16,
-  },
   homescreenContainer: {
     backgroundColor: "#152238",
     flex: 1,
   },
-  homeScreenTitle: {
-    fontFamily: "libre baskerville",
-    fontWeight: "400",
-    fontStyle: "italic",
-    color: "white",
-    fontSize: "6vw", //change size of title based on viewport
-    textAlign: "center",
-  },
-  homescreenImageContainer: {
-    justifyContent: "center",
+  contactContainer: {
+    flex: 3,
+    justifyContent: "flex-start",
+    flexDirection: "column",
     alignItems: "center",
   },
-  homeScreenImage: {
-    width: "80%",
-    height: "80%", // Adjust size based on percentage of container width
-    aspectRatio: 1, // Maintain aspect ratio
-    resizeMode: "contain",
-    marginTop: 10, // Adjust top margin as needed
-    marginBottom: 10,
+  buttonContact: {
+    backgroundColor: "transparent",
+    borderWidth: "3px",
+    borderColor: "white",
+
+    margin: 6,
+    borderRadius: 10,
+    paddingVertical: 10,
+    paddingHorizontal: 12,
+    paddingLeft: "5%",
+    paddingRight: "5%",
+    margin: 25,
   },
-  contactScreenSubtitle: {
+  contactTitle: {
+    color: "white",
+    textAlign: "center",
+    fontSize: "2.5vw",
     fontFamily: "lato-Regular",
     fontWeight: "400",
-    fontStyle: "Regular",
-    color: "white",
-    fontSize: "3vw",
-    textAlign: "center",
   },
-  contactScreenText: {
+
+  contactText: {
+    color: "white",
     fontFamily: "lato-Regular",
     fontWeight: "400",
     fontStyle: "Regular",
     color: "white",
     fontSize: "2.5vw",
-    textAlign: "center",
-  },
-  contactScreenTextSm: {
-    fontFamily: "lato-Regular",
-    fontWeight: "400",
-    fontStyle: "Regular",
-    color: "white",
-    fontSize: "1.5vw",
-    textAlign: "center",
-  },
 
-  homeScreenBtnContainer: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  contactBtnContainer: {
-    border: "2px rounded",
-    width: "25%",
+    // paddingLeft: 50,
+    // paddingRight: 50,
   },
 });
+
+// // <View>
+// <Text style={styles.contactScreenSubtitle}>Let's Connect 📶</Text>{" "}
+// </View>
+// <View style={styles.allLinksContainer}>
+//   <View style={styles.linkContainer}>
+//     <TouchableOpacity>
+//       <Text style={styles.contactScreenText}>Email 📩</Text>{" "}
+//     </TouchableOpacity>
+//   </View>
+//   <View style={styles.linkContainer}>
+//     <TouchableOpacity>
+//       <Text style={styles.contactScreenText}>LinkedIn 👨🏾‍💻</Text>{" "}
+//     </TouchableOpacity>
+//   </View>
+//   <View style={styles.linkContainer}>
+//     <TouchableOpacity>
+//       <Text style={styles.contactScreenText}>Github 👾</Text>{" "}
+//     </TouchableOpacity>
+//   </View>
+//   <View style={styles.linkContainer}>
+//     <TouchableOpacity>
+//       <Text style={styles.contactScreenText}>Spark ⚡️</Text>{" "}
+//     </TouchableOpacity>
+//   </View>
+// </View>
+
+// <View style={styles.homeScreenBtnContainer}>
+//   <View>
+//     <Footer currentPage={Contact} />
+//     <Text style={styles.contactScreenTextSm}>Back to the top</Text>
+//   </View>
+// // </View>

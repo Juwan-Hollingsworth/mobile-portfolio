@@ -20,25 +20,28 @@ import PrevNextBtn from "../components/PrevNextBtn";
 import { useNavigation } from "@react-navigation/native";
 import { AntDesign } from "@expo/vector-icons";
 import Footer from "../components/Footer";
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from "react-native-responsive-screen";
+import cheerio from "react-native-cheerio/lib/cheerio";
 
 const ResumeScreen = () => {
   const Resume = "Resume";
   return (
-    <ScrollView style={styles.homescreenContainer}>
-      {/* homescreen content  */}
-      <View>
-        <View style={styles.resumeContainer}>
+    <View style={styles.headerArea}>
+      <View style={styles.resumeContainer}>
+        <View style={styles.webViewContainer}>
+          {" "}
           <NativeWebView target="https://cheatingpanda.s3.amazonaws.com/juwan_swe329.pdf" />
         </View>
 
-        {/* <MyInlineWeb /> */}
+        <View>
+          <Footer currentPage={Resume} />
+        </View>
+        <View></View>
       </View>
-      <View style={styles.homeScreenBtnContainer}></View>
-      <View>
-        <Footer currentPage={Resume} />
-      </View>
-      <View></View>
-    </ScrollView>
+    </View>
   );
 };
 
@@ -46,60 +49,25 @@ export default ResumeScreen;
 
 const styles = StyleSheet.create({
   headerArea: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    paddingHorizontal: 16,
-    paddingTop: 16,
-  },
-  homescreenContainer: {
-    backgroundColor: "#152238",
-    flex: 1,
-  },
-  homeScreenTitle: {
-    fontFamily: "libre baskerville",
-    fontWeight: "400",
-    fontStyle: "italic",
-    color: "white",
-    fontSize: "6vw", //change size of title based on viewport
-    textAlign: "center",
-  },
-  homescreenImageContainer: {
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  homeScreenImage: {
-    width: "80%",
-    height: "80%", // Adjust size based on percentage of container width
-    aspectRatio: 1, // Maintain aspect ratio
-    resizeMode: "contain",
-    marginTop: 10, // Adjust top margin as needed
-    marginBottom: 10,
-  },
-  homeScreenSubtitle: {
-    fontFamily: "lato-Regular",
-    fontWeight: "400",
-    fontStyle: "Regular",
-    color: "white",
-    fontSize: "3vw",
-    textAlign: "center",
-  },
-  homeScreenLocationtitle: {
-    fontFamily: "lato-Regular",
-    fontWeight: "400",
-    fontStyle: "Regular",
-    color: "white",
-    fontSize: "2.5vw",
-    textAlign: "center",
-  },
-  homeScreenBtnContainer: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
+    backgroundColor: "red",
+    height: hp("10%"),
+    paddingBottom: 10,
   },
   resumeContainer: {
-    flex: 1,
-
+    backgroundColor: "#152238",
+    // backgroundColor: "blue",
+    height: hp("90%"),
     alignItems: "center",
     justifyContent: "center",
+  },
+
+  viewStyle: {
+    height: "50px",
+  },
+  webViewContainer: {
+    flex: 1,
+    height: hp("100%"),
+    backgroundColor: "red",
+    width: "80%", // Adjust as needed
   },
 });
