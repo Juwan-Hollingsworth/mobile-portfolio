@@ -28,7 +28,7 @@ const ResumeScreen = () => {
       {/* homescreen content  */}
       <View>
         <View style={styles.resumeContainer}>
-          <NativeWebView target="https://en.m.wikipedia.org" />
+          <NativeWebView target="https://cheatingpanda.s3.amazonaws.com/juwan_swe329.pdf" />
         </View>
 
         {/* <MyInlineWeb /> */}
