@@ -20,8 +20,8 @@ export default function App() {
       <NavigationContainer initialRouteName="Draft">
         <Stack.Navigator>
           <Stack.Screen
-            name="Resume"
-            component={ResumeScreen}
+            name="Projects"
+            component={ProjectScreen}
             options={{ headerShown: false }}
           />
           <Stack.Screen
@@ -34,11 +34,11 @@ export default function App() {
             component={AboutScreen}
             options={{ headerShown: false }}
           />
-          <Stack.Screen
+          {/* <Stack.Screen
             name="Projects"
             component={ProjectScreen}
             options={{ headerShown: false }}
-          />
+          /> */}
           {/* <Stack.Screen
             name="Resume"
             component={ResumeScreen}
