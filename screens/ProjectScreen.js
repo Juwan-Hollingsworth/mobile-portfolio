@@ -23,17 +23,11 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
+import { FlatList } from "react-native-web";
+import { Dimensions } from "react-native";
 
 const ProjectScreen = () => {
-  const navigation = useNavigation();
-
-  const goToAbout = () => {
-    navigation.navigate("About");
-  };
-
-  const goToResume = () => {
-    navigation.navigate("Resume");
-  };
+  const { width } = Dimensions.get("window");
 
   const Projects = "Projects";
   //portfolio logic
@@ -63,9 +57,25 @@ const ProjectScreen = () => {
             the value I bring to the table.
           </Text>
         </View>
-        <View style={styles.galleryContainer}></View>
+        <View style={styles.galleryContainer}>
+          <FlatList
+            horizontal
+            contentContainerStyle={styles.projectGrid}
+            data={ProjectData.slice(0, 5)}
+            renderItem={({ item }) => (
+              <ProjectCard
+                key={item.id}
+                image={{ uri: item.projectPic }}
+                title={item.title}
+                skills={item.skills}
+                description={item.description}
+              />
+            )}
+            keyExtractor={(item) => item.id.toString()}
+          />
+        </View>
         <View>
-          <Footer />
+          <Footer currentPage={Projects} />
         </View>
       </View>
     </View>
@@ -76,17 +86,17 @@ export default ProjectScreen;
 
 const styles = StyleSheet.create({
   headerArea: {
-    backgroundColor: "red",
+    // backgroundColor: "red",
     height: hp("10%"),
   },
   projectContainer: {
-    // backgroundColor: "#152238",
-    backgroundColor: "red",
+    backgroundColor: "#152238",
+    // backgroundColor: "red",
     height: hp("100%"),
     alignItems: "center",
   },
   projectTitle: {
-    backgroundColor: "blue",
+    backgroundColor: "#152238",
   },
   projectTitleText: {
     fontFamily: "lato-Regular",
@@ -108,6 +118,10 @@ const styles = StyleSheet.create({
   galleryContainer: {
     height: hp("65%"),
     width: wp(100),
-    backgroundColor: "blue",
+    backgroundColor: "#152238",
+  },
+  projectGrid: {
+    alignItems: "center",
+    justifyContent: "center",
   },
 });

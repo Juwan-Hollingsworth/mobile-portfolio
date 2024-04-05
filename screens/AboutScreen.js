@@ -89,3 +89,5 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
 });
+
+// https://www.youtube.com/watch?v=uZF5DiMshFY&t=153s

@@ -7,43 +7,49 @@ import {
   TouchableOpacity,
   Modal,
 } from "react-native";
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from "react-native-responsive-screen";
 
 const ProjectCard = ({ image, title, skills, tag, description }) => {
   const [modalVisible, setModalVisible] = useState(false);
 
   return (
-    <TouchableOpacity
-      style={styles.projCardContainer}
-      onPress={() => setModalVisible(true)}
-    >
-      <Image source={image} style={styles.projCardImage} />
-      <Modal
-        animationType="slide"
-        transparent={true}
-        visible={modalVisible}
-        onRequestClose={() => setModalVisible(false)}
+    <View style={styles.projectTopLevel}>
+      <TouchableOpacity
+        style={styles.projCardContainer}
+        onPress={() => setModalVisible(true)}
       >
-        <TouchableOpacity
-          style={styles.modalContainer}
-          onPress={() => setModalVisible(false)} // Close modal on container click
+        <Image source={image} style={styles.projCardImage} />
+        <Modal
+          animationType="slide"
+          transparent={true}
+          visible={modalVisible}
+          onRequestClose={() => setModalVisible(false)}
         >
-          <View style={styles.modal}>
-            <Image source={image} style={styles.modalImage} />
-            <View style={styles.modalContent}>
-              <Text style={styles.modalTitle}>{title}</Text>
-              <Text style={styles.modalSkills}>{skills}</Text>
-              <Text style={styles.modalDescription}>{description}</Text>
-              <TouchableOpacity
-                onPress={() => setModalVisible(false)}
-                style={styles.closeButton}
-              >
-                <Text style={styles.closeButtonText}>Close</Text>
-              </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.modalContainer}
+            onPress={() => setModalVisible(false)} // Close modal on container click
+          >
+            <View style={styles.modal}>
+              <Image source={image} style={styles.modalImage} />
+              <View style={styles.modalContent}>
+                <Text style={styles.modalTitle}>{title}</Text>
+                <Text style={styles.modalSkills}>{skills}</Text>
+                <Text style={styles.modalDescription}>{description}</Text>
+                <TouchableOpacity
+                  onPress={() => setModalVisible(false)}
+                  style={styles.closeButton}
+                >
+                  <Text style={styles.closeButtonText}>Close</Text>
+                </TouchableOpacity>
+              </View>
             </View>
-          </View>
-        </TouchableOpacity>
-      </Modal>
-    </TouchableOpacity>
+          </TouchableOpacity>
+        </Modal>
+      </TouchableOpacity>
+    </View>
   );
 };
 
@@ -108,5 +114,10 @@ const styles = StyleSheet.create({
     height: "60%",
     backgroundColor: "white",
     borderRadius: 10,
+  },
+  projectTopLevel: {
+    flex: 1,
+    justifyContent: "center",
+    paddingHorizontal: "10%", // Adjust as needed for moderate margins
   },
 });
