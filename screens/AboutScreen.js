@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View, Image, ScrollView } from "react-native";
 import React from "react";
+import { Dimensions } from "react-native";
 
 import juwan from "../assets/juwan.jpg";
 import HeaderBtns from "../components/HeaderBtns";
@@ -11,7 +12,7 @@ import Footer from "../components/Footer";
 const AboutScreen = () => {
   const About = "About";
   return (
-    <ScrollView
+    <View
       style={styles.aboutContainer}
       contentContainerStyle={styles.containerCenter}
     >
@@ -43,7 +44,7 @@ const AboutScreen = () => {
         </View>
       </View>
       <View></View>
-    </ScrollView>
+    </View>
   );
 };
 
@@ -52,7 +53,7 @@ export default AboutScreen;
 const styles = StyleSheet.create({
   aboutContainer: {
     backgroundColor: "#152238",
-    flex: 1,
+    flex: 6,
   },
 
   aboutImageContainer: {
@@ -60,11 +61,12 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   aboutImage: {
-    width: "80%",
-    height: "80%", // Adjust size based on percentage of container width
-    aspectRatio: 1, // Maintain aspect ratio
+    width: "400px",
+    height: "400px", // Adjust size based on percentage of container width
+    // Maintain aspect ratio
     borderRadius: 10,
     marginTop: 10, // Adjust top margin as needed
+    marginBottom: 10,
   },
   containerCenter: {
     flex: 1,
@@ -77,9 +79,9 @@ const styles = StyleSheet.create({
     fontWeight: "400",
     fontStyle: "Regular",
     color: "white",
-    fontSize: "2.5vw",
+    fontSize: "1.5vw",
     textAlign: "center",
-    width: "80%",
+    width: "60%",
   },
 
   aboutTextContainer: {

@@ -15,12 +15,6 @@ import { AntDesign } from "@expo/vector-icons";
 import Footer from "../components/Footer";
 
 const AboutScreen = () => {
-  const navigation = useNavigation();
-
-  const goToResume = () => {
-    navigation.navigate("Resume");
-  };
-
   const Contact = "Contact";
 
   return (
@@ -31,16 +25,7 @@ const AboutScreen = () => {
       transition={{ duration: 0.75, ease: "easeOut" }}
     >
       {/* header area + btns  */}
-      <View style={styles.headerArea}>
-        <HeaderBtns
-          title="Freelance"
-          onPress={() => console.log("Button pressed")}
-        />
-        <HeaderBtns
-          title="Resume"
-          onPress={() => console.log("Button pressed")}
-        />
-      </View>
+
       {/* homescreen content  */}
       <View>
         <Text style={styles.contactScreenSubtitle}>Let's Connect 📶</Text>{" "}

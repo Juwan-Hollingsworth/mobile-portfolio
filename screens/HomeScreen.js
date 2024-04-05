@@ -20,6 +20,7 @@ import { useNavigation } from "@react-navigation/native";
 import { AntDesign } from "@expo/vector-icons";
 import { useMediaQuery } from "react-responsive";
 import Footer from "../components/Footer";
+import { animate, motion as m } from "framer-motion";
 
 const { width, height } = Dimensions.get("window"); // Get the screen dimensions
 
@@ -46,7 +47,12 @@ const HomeScreen = () => {
   };
 
   return (
-    <ScrollView style={styles.homescreenContainer}>
+    <m.ScrollView
+      style={styles.homescreenContainer}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.75, ease: "easeOut" }}
+    >
       {/* header area + btns  */}
 
       {/* homescreen content  */}
@@ -67,7 +73,7 @@ const HomeScreen = () => {
         <SocialMediaBtns />
         <Footer currentPage={Home} />
       </View>
-    </ScrollView>
+    </m.ScrollView>
   );
 };
 
@@ -134,3 +140,4 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
 });
+// https://www.youtube.com/watch?time_continue=55&v=FdrEjwymzdY&embeds_referring_euri=https%3A%2F%2Fwww.bing.com%2F&embeds_referring_origin=https%3A%2F%2Fwww.bing.com&source_ve_path=Mjg2NjY&feature=emb_logo

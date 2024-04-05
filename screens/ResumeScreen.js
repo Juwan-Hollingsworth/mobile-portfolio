@@ -22,31 +22,9 @@ import { AntDesign } from "@expo/vector-icons";
 import Footer from "../components/Footer";
 
 const ResumeScreen = () => {
-  // allow navigation to screens when clicked.
-  const navigation = useNavigation();
-
-  const goToProjects = () => {
-    navigation.navigate("Projects");
-  };
-
-  const goToContact = () => {
-    navigation.navigate("Contact");
-  };
-
   const Resume = "Resume";
   return (
     <ScrollView style={styles.homescreenContainer}>
-      {/* header area + btns  */}
-      <View style={styles.headerArea}>
-        <HeaderBtns
-          title="Freelance"
-          onPress={() => console.log("Button pressed")}
-        />
-        <HeaderBtns
-          title="Resume"
-          onPress={() => console.log("Button pressed")}
-        />
-      </View>
       {/* homescreen content  */}
       <View>
         <View style={styles.resumeContainer}>

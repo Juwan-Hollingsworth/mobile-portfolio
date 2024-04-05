@@ -45,17 +45,6 @@ const ProjectScreen = () => {
 
   return (
     <ScrollView style={styles.homescreenContainer}>
-      {/* header area + btns  */}
-      <View style={styles.headerArea}>
-        <HeaderBtns
-          title="Freelance"
-          onPress={() => console.log("Button pressed")}
-        />
-        <HeaderBtns
-          title="Resume"
-          onPress={() => console.log("Button pressed")}
-        />
-      </View>
       {/* homescreen content  */}
       <View style={styles.projectScreenBtnContainer}>
         <View>
