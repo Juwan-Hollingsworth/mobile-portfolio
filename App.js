@@ -20,20 +20,15 @@ export default function App() {
       <NavigationContainer initialRouteName="Draft">
         <Stack.Navigator>
           <Stack.Screen
-            name="About"
-            component={AboutScreen}
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen
             name="Home"
             component={HomeScreen}
             options={{ headerShown: false }}
           />
-          {/* <Stack.Screen
+          <Stack.Screen
             name="About"
             component={AboutScreen}
             options={{ headerShown: false }}
-          /> */}
+          />
           <Stack.Screen
             name="Projects"
             component={ProjectScreen}
