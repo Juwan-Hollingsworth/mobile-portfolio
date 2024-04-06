@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
   webViewContainer: {
     flex: 1,
     height: hp("100%"),
-    backgroundColor: "red",
+    // backgroundColor: "red",
     width: "80%", // Adjust as needed
   },
 });

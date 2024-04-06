@@ -27,16 +27,28 @@ const AboutScreen = () => {
         <Text style={styles.contactTitle}>Let's Connect 📶</Text>
       </View>
       <View style={styles.contactContainer}>
-        <Pressable style={styles.buttonContact} onPress={onPress}>
+        <Pressable
+          style={[styles.buttonContact, styles.buttonMargin]}
+          onPress={onPress}
+        >
           <Text style={styles.contactText}>Email 📩</Text>
         </Pressable>
-        <Pressable style={styles.buttonContact} onPress={onPress}>
+        <Pressable
+          style={[styles.buttonContact, styles.buttonMargin]}
+          onPress={onPress}
+        >
           <Text style={styles.contactText}>LinkedIn 👨🏾‍💻</Text>
         </Pressable>
-        <Pressable style={styles.buttonContact} onPress={onPress}>
+        <Pressable
+          style={[styles.buttonContact, styles.buttonMargin]}
+          onPress={onPress}
+        >
           <Text style={styles.contactText}>Github 👾</Text>
         </Pressable>
-        <Pressable style={styles.buttonContact} onPress={onPress}>
+        <Pressable
+          style={[styles.buttonContact, styles.buttonMargin]}
+          onPress={onPress}
+        >
           <Text style={styles.contactText}>Spark ⚡️</Text>
         </Pressable>
       </View>
@@ -64,16 +76,15 @@ const styles = StyleSheet.create({
   },
   buttonContact: {
     backgroundColor: "transparent",
-    borderWidth: "3px",
+    borderWidth: 3,
     borderColor: "white",
-
-    margin: 6,
-    borderRadius: 10,
+    marginHorizontal: 20, // Adjusted margin for equal spacing
+    borderRadius: 50,
     paddingVertical: 10,
-    paddingHorizontal: 12,
-    paddingLeft: "5%",
-    paddingRight: "5%",
-    margin: 25,
+    paddingHorizontal: 30, // Adjusted paddingHorizontal for spacing
+  },
+  buttonMargin: {
+    marginBottom: 40, // Spacing between buttons
   },
   contactTitle: {
     color: "white",
@@ -81,6 +92,7 @@ const styles = StyleSheet.create({
     fontSize: "2.5vw",
     fontFamily: "lato-Regular",
     fontWeight: "400",
+    marginBottom: 40,
   },
 
   contactText: {

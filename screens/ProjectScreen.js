@@ -74,6 +74,7 @@ const ProjectScreen = () => {
             keyExtractor={(item) => item.id.toString()}
           />
         </View>
+
         <View>
           <Footer currentPage={Projects} />
         </View>
@@ -117,7 +118,7 @@ const styles = StyleSheet.create({
   },
   galleryContainer: {
     height: hp("65%"),
-    width: wp(100),
+    width: wp("100%"),
     backgroundColor: "#152238",
   },
   projectGrid: {
