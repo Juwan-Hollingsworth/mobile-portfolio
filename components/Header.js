@@ -9,7 +9,7 @@ const Header = () => {
       {/* header area + btns  */}
       <View style={styles.headerArea}>
         <HeaderBtns
-          title="Freelance"
+          title="Github"
           onPress={() => console.log("Button pressed")}
         />
         <HeaderBtns
