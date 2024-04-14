@@ -10,15 +10,14 @@ import Footer from "../components/Footer";
 import { FlatList } from "react-native";
 import juwan from "../assets/juwan.jpg";
 import { FontAwesome5 } from "@expo/vector-icons";
+import GitHubCalendar from "react-github-calendar";
+
 const AboutDraft = () => {
   return (
     <View style={styles.homescreenContainer}>
       <View style={styles.totBoxContainer}>
         <View>
           <TouchableOpacity>
-            <View style={styles.boxTitle}>
-              <Text>Github</Text>
-            </View>
             <View style={styles.boxContainerLeft}>
               <Image source={juwan} style={styles.aboutImage} />
               <Text>Juwan Hollingsworth</Text>
@@ -28,6 +27,17 @@ const AboutDraft = () => {
                   <Text style={styles.resumeText}>Download Resume</Text>
                 </View>
               </TouchableOpacity>
+            </View>
+
+            <View style={styles.boxTitle}>
+              <Text> Github</Text>
+              <View style={styles.ghContainer}>
+                <GitHubCalendar
+                  username="Juwan-Hollingsworth"
+                  hideMonthLabels
+                  colorScheme="dark"
+                />
+              </View>
             </View>
           </TouchableOpacity>
         </View>
@@ -128,7 +138,7 @@ const styles = StyleSheet.create({
   },
   boxTitle: {
     width: wp("40%"),
-    height: "100px",
+    height: "200px",
     // backgroundColor: "purple",
     borderRadius: 10,
     margin: 10,
@@ -136,7 +146,7 @@ const styles = StyleSheet.create({
   },
   boxContainerLeft: {
     width: wp("40%"),
-    height: "400px",
+    height: "300px",
     backgroundColor: "#004E6D",
     borderRadius: 10,
     margin: 10,
@@ -216,4 +226,11 @@ const styles = StyleSheet.create({
     borderColor: "white",
     marginHorizontal: "15px",
   },
+  ghContainer: {
+    width: "100%",
+    height: "25px",
+  },
 });
+
+// https://grubersjoe.github.io/react-github-calendar/
+// https://github.com/grubersjoe/react-activity-calendar
