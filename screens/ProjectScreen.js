@@ -60,6 +60,7 @@ const ProjectScreen = () => {
         <View style={styles.galleryContainer}>
           <FlatList
             horizontal
+            showsHorizontalScrollIndicator={false}
             contentContainerStyle={styles.projectGrid}
             data={ProjectData.slice(0, 5)}
             renderItem={({ item }) => (
@@ -120,6 +121,8 @@ const styles = StyleSheet.create({
     height: hp("65%"),
     width: wp("100%"),
     backgroundColor: "#152238",
+    alignItems: "center",
+    justifyContent: "center",
   },
   projectGrid: {
     alignItems: "center",
