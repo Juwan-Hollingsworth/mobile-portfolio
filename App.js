@@ -21,6 +21,11 @@ export default function App() {
       <NavigationContainer initialRouteName="Draft">
         <Stack.Navigator>
           <Stack.Screen
+            name="Contact"
+            component={ContactScreen}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
             name="Home"
             component={HomeScreen}
             options={{ headerShown: false }}
@@ -40,11 +45,11 @@ export default function App() {
             component={ResumeScreen}
             options={{ headerShown: false }}
           />
-          <Stack.Screen
+          {/* <Stack.Screen
             name="Contact"
             component={ContactScreen}
             options={{ headerShown: false }}
-          />
+          /> */}
         </Stack.Navigator>
       </NavigationContainer>
     </View>

@@ -27,38 +27,43 @@ const AboutScreen = () => {
       <View>
         <Text style={styles.contactTitle}>Let's Connect 📶</Text>
       </View>
-      <View style={styles.contactContainer}>
+      <View style={styles.zz}>
         <View>
-          {" "}
-          <Image source={juwanc} style={styles.aboutImage} />
+          <View>
+            {" "}
+            <Image source={juwanc} style={styles.aboutImage} />
+          </View>
         </View>
-        <View style={styles.contactBtns}>
-          <Pressable
-            style={[styles.buttonContact, styles.buttonMargin]}
-            onPress={onPress}
-          >
-            <Text style={styles.contactText}>Email 📩</Text>
-          </Pressable>
-          <Pressable
-            style={[styles.buttonContact, styles.buttonMargin]}
-            onPress={onPress}
-          >
-            <Text style={styles.contactText}>LinkedIn 👨🏾‍💻</Text>
-          </Pressable>
-          <Pressable
-            style={[styles.buttonContact, styles.buttonMargin]}
-            onPress={onPress}
-          >
-            <Text style={styles.contactText}>Github 👾</Text>
-          </Pressable>
-          <Pressable
-            style={[styles.buttonContact, styles.buttonMargin]}
-            onPress={onPress}
-          >
-            <Text style={styles.contactText}>Spark ⚡️</Text>
-          </Pressable>
+        <View>
+          <View style={styles.contactBtns}>
+            <Pressable
+              style={[styles.buttonContact, styles.buttonMargin]}
+              onPress={onPress}
+            >
+              <Text style={styles.contactText}>Email 📩</Text>
+            </Pressable>
+            <Pressable
+              style={[styles.buttonContact, styles.buttonMargin]}
+              onPress={onPress}
+            >
+              <Text style={styles.contactText}>LinkedIn 👨🏾‍💻</Text>
+            </Pressable>
+            <Pressable
+              style={[styles.buttonContact, styles.buttonMargin]}
+              onPress={onPress}
+            >
+              <Text style={styles.contactText}>Github 👾</Text>
+            </Pressable>
+            <Pressable
+              style={[styles.buttonContact, styles.buttonMargin]}
+              onPress={onPress}
+            >
+              <Text style={styles.contactText}>Spark ⚡️</Text>
+            </Pressable>
+          </View>
         </View>
       </View>
+
       <View>
         <Footer />
       </View>
@@ -123,6 +128,12 @@ const styles = StyleSheet.create({
   },
   contactContainer: {
     flexDirection: "row",
+  },
+  zz: {
+    flexDirection: "row",
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
   },
 });
 
