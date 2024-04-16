@@ -3,11 +3,12 @@ import {
   Text,
   View,
   TouchableOpacity,
+  Image,
   Pressable,
 } from "react-native";
 import React from "react";
 import { animate, motion as m } from "framer-motion";
-
+import juwanc from "../assets/contactImg.JPG";
 import Footer from "../components/Footer";
 
 const AboutScreen = () => {
@@ -26,31 +27,37 @@ const AboutScreen = () => {
       <View>
         <Text style={styles.contactTitle}>Let's Connect 📶</Text>
       </View>
-      <View style={styles.contactContainer}>
-        <Pressable
-          style={[styles.buttonContact, styles.buttonMargin]}
-          onPress={onPress}
-        >
-          <Text style={styles.contactText}>Email 📩</Text>
-        </Pressable>
-        <Pressable
-          style={[styles.buttonContact, styles.buttonMargin]}
-          onPress={onPress}
-        >
-          <Text style={styles.contactText}>LinkedIn 👨🏾‍💻</Text>
-        </Pressable>
-        <Pressable
-          style={[styles.buttonContact, styles.buttonMargin]}
-          onPress={onPress}
-        >
-          <Text style={styles.contactText}>Github 👾</Text>
-        </Pressable>
-        <Pressable
-          style={[styles.buttonContact, styles.buttonMargin]}
-          onPress={onPress}
-        >
-          <Text style={styles.contactText}>Spark ⚡️</Text>
-        </Pressable>
+      <View>
+        <View>
+          {" "}
+          <Image source={juwanc} style={styles.aboutImage} />
+        </View>
+        <View style={styles.contactContainer}>
+          <Pressable
+            style={[styles.buttonContact, styles.buttonMargin]}
+            onPress={onPress}
+          >
+            <Text style={styles.contactText}>Email 📩</Text>
+          </Pressable>
+          <Pressable
+            style={[styles.buttonContact, styles.buttonMargin]}
+            onPress={onPress}
+          >
+            <Text style={styles.contactText}>LinkedIn 👨🏾‍💻</Text>
+          </Pressable>
+          <Pressable
+            style={[styles.buttonContact, styles.buttonMargin]}
+            onPress={onPress}
+          >
+            <Text style={styles.contactText}>Github 👾</Text>
+          </Pressable>
+          <Pressable
+            style={[styles.buttonContact, styles.buttonMargin]}
+            onPress={onPress}
+          >
+            <Text style={styles.contactText}>Spark ⚡️</Text>
+          </Pressable>
+        </View>
       </View>
       <View>
         <Footer />
@@ -105,6 +112,14 @@ const styles = StyleSheet.create({
 
     // paddingLeft: 50,
     // paddingRight: 50,
+  },
+  aboutImage: {
+    width: 150,
+    height: 150,
+    borderRadius: 150 / 2,
+    overflow: "hidden",
+    borderWidth: 3,
+    borderColor: "white",
   },
 });
 

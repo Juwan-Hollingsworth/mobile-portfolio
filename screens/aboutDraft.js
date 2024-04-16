@@ -150,6 +150,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#004E6D",
     borderRadius: 10,
     margin: 10,
+    alignItems: "center", // Center content horizontally
+    justifyContent: "center", // Center content vertically
   },
   boxContainer2: {
     width: wp("40%"),
