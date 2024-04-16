@@ -2,7 +2,7 @@ import { StyleSheet, Text, View } from "react-native";
 import HomeScreen from "./screens/HomeScreen";
 import AboutScreen from "./screens/AboutScreen";
 import ProjectScreen from "./screens/ProjectScreen";
-import AboutDraft from "./screens/aboutDraft";
+import AboutDraft from "./screens/AboutScreen";
 import BlankScreen from "./screens/BlankScreen";
 import draft from "./screens/ContactScreen";
 import ResumeScreen from "./screens/ResumeScreen";
@@ -20,11 +20,6 @@ export default function App() {
 
       <NavigationContainer initialRouteName="Draft">
         <Stack.Navigator>
-          <Stack.Screen
-            name="draft"
-            component={AboutDraft}
-            options={{ headerShown: false }}
-          />
           <Stack.Screen
             name="Home"
             component={HomeScreen}
