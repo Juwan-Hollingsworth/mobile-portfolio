@@ -8,7 +8,7 @@ import {
 } from "react-native";
 import React from "react";
 import { animate, motion as m } from "framer-motion";
-import juwanc from "../assets/contactImg.JPG";
+import juwanc from "../assets/juwan2.jpg";
 import Footer from "../components/Footer";
 
 const AboutScreen = () => {
@@ -27,12 +27,12 @@ const AboutScreen = () => {
       <View>
         <Text style={styles.contactTitle}>Let's Connect 📶</Text>
       </View>
-      <View>
+      <View style={styles.contactContainer}>
         <View>
           {" "}
           <Image source={juwanc} style={styles.aboutImage} />
         </View>
-        <View style={styles.contactContainer}>
+        <View style={styles.contactBtns}>
           <Pressable
             style={[styles.buttonContact, styles.buttonMargin]}
             onPress={onPress}
@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#152238",
     flex: 1,
   },
-  contactContainer: {
+  contactBtns: {
     flex: 3,
     justifyContent: "flex-start",
     flexDirection: "column",
@@ -114,12 +114,15 @@ const styles = StyleSheet.create({
     // paddingRight: 50,
   },
   aboutImage: {
-    width: 150,
-    height: 150,
+    width: 400,
+    height: 600,
     borderRadius: 150 / 2,
     overflow: "hidden",
     borderWidth: 3,
     borderColor: "white",
+  },
+  contactContainer: {
+    flexDirection: "row",
   },
 });
 
