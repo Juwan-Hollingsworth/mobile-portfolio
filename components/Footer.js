@@ -5,36 +5,43 @@ import { Dimensions } from "react-native";
 import { TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
-const { width, height } = Dimensions.get("window"); // Get the screen dimensions
+const { width, height } = Dimensions.get("window");
 
-//take in the current page as a prop
 const Footer = ({ currentPage }) => {
   const navigation = useNavigation();
-  //define pages
   const pages = ["Home", "About", "Projects", "Resume", "Contact"];
+  const currentIndex = pages.indexOf(currentPage)
+  const isFirstPage = currentIndex === 0
+  const isLastPage = currentIndex === pages.length -1
 
   const goToNextPage = () => {
-    //get the currentIndex of the page
-    const currentIndex = pages.indexOf(currentPage);
-    //given the pages current index increment the value by 1
     const nextPage = pages[currentIndex + 1];
-    //if there is a next page...navigation to it
     if (nextPage) {
       navigation.navigate(nextPage);
     }
   };
-  // const goToAbout = () => {
-  //   navigation.navigate("About");
-  // };
+
+  const goToPreviousPage = () => {
+    const previousPage = pages[currentIndex - 1];
+    if (previousPage) {
+      navigation.navigate(previousPage);
+    }
+  };
 
   return (
     <View style={styles.footerContainer}>
-      <TouchableOpacity
-        onPress={goToNextPage}
-        style={styles.footerBtnContainer}
-      >
-        <AntDesign name="downcircleo" size={24} color="white" />
-      </TouchableOpacity>
+      <View style={styles.iconContainer}>
+        {!isFirstPage && (
+          <TouchableOpacity onPress={goToPreviousPage} style={styles.footerBtnContainer}>
+            <AntDesign name="leftcircleo" size={24} color="white" />
+          </TouchableOpacity>
+        )}
+        {!isLastPage && (
+          <TouchableOpacity onPress={goToNextPage} style={styles.footerBtnContainer}>
+            <AntDesign name="rightcircleo" size={24} color="white" />
+          </TouchableOpacity>
+        )}
+      </View>
     </View>
   );
 };
@@ -43,19 +50,21 @@ export default Footer;
 
 const styles = StyleSheet.create({
   footerContainer: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#152238",
     // backgroundColor: "red",
+    paddingVertical: 10,
+  },
+  iconContainer: {
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
   },
   footerBtnContainer: {
     padding: 15,
   },
 });
-
-/**
- * Create a button compontent that takes page driection as props
- * Render these buttons in the footer
- * Or render footer component in every screen
- * Pass the next & prev page to btns
- */

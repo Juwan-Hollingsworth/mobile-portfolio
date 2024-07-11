@@ -29,45 +29,37 @@ import cheerio from "react-native-cheerio/lib/cheerio";
 const ResumeScreen = () => {
   const Resume = "Resume";
   return (
-    <View style={styles.headerArea}>
-      <View style={styles.resumeContainer}>
-        <View style={styles.webViewContainer}>
-          {" "}
-          <NativeWebView target="https://cheatingpanda.s3.amazonaws.com/juwan_swe329.pdf" />
-        </View>
+    <View style={styles.container}>
+    <View style={styles.contentContainer}>
+      <View style={styles.webViewContainer}>
+      <NativeWebView target="https://cheatingpanda.s3.amazonaws.com/juwan_swe329.pdf" 
 
-        <View>
-          <Footer currentPage={Resume} />
-        </View>
-        <View></View>
+
+      />
       </View>
     </View>
+    <Footer currentPage={Resume} />
+  </View>
   );
 };
 
 export default ResumeScreen;
 
 const styles = StyleSheet.create({
-  headerArea: {
-    backgroundColor: "red",
-    height: hp("10%"),
-    paddingBottom: 10,
-  },
-  resumeContainer: {
+  container: {
+    flex: 1,
     backgroundColor: "#152238",
-    // backgroundColor: "blue",
-    height: hp("90%"),
+  },
+  contentContainer: {
+    flex: 1,
     alignItems: "center",
     justifyContent: "center",
   },
-
-  viewStyle: {
-    height: "50px",
-  },
   webViewContainer: {
+    width: wp("80%"),
+    height: hp("80%"),
+  },
+  nativeWebView: {
     flex: 1,
-    height: hp("100%"),
-    // backgroundColor: "red",
-    width: "80%", // Adjust as needed
   },
 });

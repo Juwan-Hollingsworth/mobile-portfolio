@@ -17,6 +17,7 @@ const AboutScreen = () => {
   const onPress = () => {};
 
   return (
+    <View style={styles.homescreenContainer}>
     <m.ScrollView
       style={styles.homescreenContainer}
       initial={{ opacity: 0 }}
@@ -64,12 +65,12 @@ const AboutScreen = () => {
         </View>
       </View>
 
-      <View>
-        <Footer />
-      </View>
-
+    
+     
+      <Footer currentPage={Contact} />
       {/* homescreen content  */}
     </m.ScrollView>
+    </View>
   );
 };
 
@@ -119,8 +120,8 @@ const styles = StyleSheet.create({
     // paddingRight: 50,
   },
   aboutImage: {
-    width: 400,
-    height: 600,
+    width: 300,
+    height: 500,
     borderRadius: 150 / 2,
     overflow: "hidden",
     borderWidth: 3,

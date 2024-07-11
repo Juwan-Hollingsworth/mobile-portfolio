@@ -17,15 +17,10 @@ const styles = StyleSheet.create({
   headerButton: {
     alignItems: "center",
     justifyContent: "center",
-    paddingVertical: 12,
-    paddingHorizontal: 32,
     borderRadius: 4,
-    elevation: 3,
     backgroundColor: "#e9c822",
     width: 125, //add wxh
     height: 40,
-    paddingHorizontal: 16, // Add horizontal padding
-    paddingVertical: 8,
   },
   text: {
     fontSize: 16,

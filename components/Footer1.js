@@ -24,18 +24,15 @@ const Header = () => {
 export default Header;
 
 const styles = StyleSheet.create({
-  homescreenContainer: {
-  
-    padding: '2%',
-   
-    backgroundColor: "#152238",
-  },
   headerArea: {
     flexDirection: "row",
     justifyContent: "space-between",
-    alignItems: "center",
-    paddingHorizontal: '5%',
-    
+    paddingHorizontal: 16,
+    padding: 30,
+    paddingLeft: 50,
   },
-
+  homescreenContainer: {
+    backgroundColor: "blue",
+    // backgroundColor: "red",
+  },
 });
