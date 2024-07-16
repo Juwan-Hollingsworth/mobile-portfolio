@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
   },
   webViewContainer: {
     width: wp("80%"),
-    height: hp("80%"),
+    height: hp("70%"),
   },
   nativeWebView: {
     flex: 1,

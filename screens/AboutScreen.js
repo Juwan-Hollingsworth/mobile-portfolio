@@ -24,10 +24,10 @@ const AboutDraft = () => {
       <View style={styles.totBoxContainer}>
         <View>
           {/* ROW 1 */}
-          <View style={styles.newContainer}>
+          <View style={styles.githubContainer}>
             <View>
               {" "}
-              <View style={styles.boxContainerLeft}>
+              <View style={styles.profileContainer}>
                 <Image source={juwan} style={styles.aboutImage} />
                 <Text style={styles.aboutText}>Juwan Hollingsworth</Text>
                 <Text style={[styles.aboutText, { marginBottom: 5 }]}>
@@ -50,30 +50,18 @@ const AboutDraft = () => {
                   <Text style={styles.bioText}>Open to work</Text>
                 </View>
                 <Text style={styles.bioText}>
-                  I'm Juwan, a full-stack software engineer with a Bachelor's in
-                  Computer Science. I'm passionate about creating innovative
-                  digital experiences and products for the web. <br /> <br />
-                  My journey began in high school when I ran an online business
-                  and saw the power of digital transformation. This sparked my
-                  interest in web development, and I taught myself Dreamweaver
-                  and continued to build my coding skills.
-                  <br /> <br /> During my studies at Clayton State University,
-                  I've had the opportunity to work with renowned companies in
-                  Atlanta, including COX Automotive, MailChimp, and Spark
-                  Social. These experiences have honed my skills in creating
-                  accessible and inclusive digital solutions.
-                  <br /> <br /> Today, I leverage the latest technologies and
-                  best practices to deliver high-quality, user-centric web
-                  applications that drive business success.
+                I'm Juwan Hollingsworth, a full-stack software engineer with a Computer Science degree and 4+ years of experience. My journey began with an online sneaker business in high school, sparking my passion for web development. I've since honed my skills at companies like Cox Automotive and Spark Social, working with technologies such as C++, JavaScript (Next.js and React), SQL, and serverless architectures.<br /> <br />
+I excel in developing and maintaining web applications, consistently achieving high customer satisfaction rates and optimizing performance. My expertise extends to Docker, CI/CD pipelines, and both SQL and NoSQL databases. I'm currently pursuing AWS certifications, reflecting my commitment to continuous learning and expanding into data engineering. <br /> <br />
+With a proven track record of solving complex technical challenges and collaborating effectively in cross-functional teams in my current role, I'm dedicated to creating innovative, user-centric digital solutions that drive business success.
                 </Text>
               </View>
             </View>
           </View>
           {/* ROW 2 */}
-          <View style={styles.newContainer}>
+          <View style={styles.githubContainer}>
             <View>
               <View style={styles.boxTitle}>
-                <Text> Github</Text>
+                <Text> Github Contribution activity</Text>
                 <View style={styles.ghContainer}>
                   <GitHubCalendar
                     username="Juwan-Hollingsworth"
@@ -144,6 +132,39 @@ const AboutDraft = () => {
                         </View>
                       </View>
                     </View>
+                    <View>
+                      <Text style={styles.bioText}>Hobbies</Text>
+                      <View>
+                        <View>
+                          <View style={styles.rolesContainer}>
+                            {/* first section */}
+                            <View>
+                              <Image source={react} style={styles.skillIcon} />
+
+                              <Text style={styles.bioText}>React Native</Text>
+                            </View>
+                            <View>
+                              <Image source={js} style={styles.skillIcon} />
+
+                              <Text style={styles.bioText}>Javascript</Text>
+                            </View>
+                            {/* second section */}
+                          </View>
+                          <View style={styles.rolesContainer}>
+                            <View>
+                              <Image source={node} style={styles.skillIcon} />
+
+                              <Text style={styles.bioText}>NodeJS</Text>
+                            </View>
+                            <View>
+                              <Image source={mongo} style={styles.skillIcon} />
+
+                              <Text style={styles.bioText}>MongoDB</Text>
+                            </View>
+                          </View>
+                        </View>
+                      </View>
+                    </View>
                   </View>
                 </View>
               </View>
@@ -160,7 +181,8 @@ export default AboutDraft;
 
 const styles = StyleSheet.create({
   homescreenContainer: {
-    backgroundColor: "#152238",
+    backgroundColor: "green",
+    // backgroundColor: "#152238",
     flex: 1,
   },
   boxTitle: {
@@ -171,7 +193,7 @@ const styles = StyleSheet.create({
     margin: 10,
     // backgroundColor: "rgba(227,229,255,255)",
   },
-  boxContainerLeft: {
+  profileContainer: {
     width: wp("20%"),
     height: "300px",
     backgroundColor: "#004D6A",
@@ -184,28 +206,28 @@ const styles = StyleSheet.create({
   },
   boxContainer2: {
     width: wp("60%"),
-    height: hp("40%"),
-    backgroundColor: "#3A3D5E",
+   
+    backgroundColor: "red",
+    // backgroundColor: "#3A3D5E",
     borderRadius: 10,
     margin: 10,
     padding: 20,
   },
   boxContainer3: {
     width: wp("40%"),
-    height: "200px",
-    backgroundColor: "#575073",
+    backgroundColor: "blue",
+    // backgroundColor: "#575073",
     borderRadius: 10,
     margin: 10,
 
     padding: 20,
   },
   totBoxContainer: {
-    flexDirection: "row",
     padding: 20,
     height: hp("80%"), // 70% of height device screen
-    width: wp("100%"),
     alignItems: "center",
     justifyContent: "center",
+    backgroundColor: "orange",
   },
 
   aboutImage: {
@@ -264,7 +286,7 @@ const styles = StyleSheet.create({
     width: "100%",
     height: "25px",
     flex: 1,
-    alignItems: "center", // Center the GitHubCalendar horizontally
+    alignItems: "center", // Center the Calendar horizontally
     justifyContent: "center",
   },
   aboutText: {
@@ -275,7 +297,7 @@ const styles = StyleSheet.create({
     padding: 5,
     color: "white",
   },
-  newContainer: {
+  githubContainer: {
     flexDirection: "row",
   },
   rolesInnerContainer: {

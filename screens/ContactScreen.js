@@ -91,10 +91,10 @@ const styles = StyleSheet.create({
     backgroundColor: "transparent",
     borderWidth: 3,
     borderColor: "white",
-    marginHorizontal: 20, // Adjusted margin for equal spacing
+    marginHorizontal: 20, 
     borderRadius: 50,
     paddingVertical: 10,
-    paddingHorizontal: 30, // Adjusted paddingHorizontal for spacing
+    paddingHorizontal: 30, 
   },
   buttonMargin: {
     marginBottom: 40, // Spacing between buttons
@@ -137,36 +137,3 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
 });
-
-// // <View>
-// <Text style={styles.contactScreenSubtitle}>Let's Connect 📶</Text>{" "}
-// </View>
-// <View style={styles.allLinksContainer}>
-//   <View style={styles.linkContainer}>
-//     <TouchableOpacity>
-//       <Text style={styles.contactScreenText}>Email 📩</Text>{" "}
-//     </TouchableOpacity>
-//   </View>
-//   <View style={styles.linkContainer}>
-//     <TouchableOpacity>
-//       <Text style={styles.contactScreenText}>LinkedIn 👨🏾‍💻</Text>{" "}
-//     </TouchableOpacity>
-//   </View>
-//   <View style={styles.linkContainer}>
-//     <TouchableOpacity>
-//       <Text style={styles.contactScreenText}>Github 👾</Text>{" "}
-//     </TouchableOpacity>
-//   </View>
-//   <View style={styles.linkContainer}>
-//     <TouchableOpacity>
-//       <Text style={styles.contactScreenText}>Spark ⚡️</Text>{" "}
-//     </TouchableOpacity>
-//   </View>
-// </View>
-
-// <View style={styles.homeScreenBtnContainer}>
-//   <View>
-//     <Footer currentPage={Contact} />
-//     <Text style={styles.contactScreenTextSm}>Back to the top</Text>
-//   </View>
-// // </View>

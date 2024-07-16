@@ -2,144 +2,82 @@ import {
   StyleSheet,
   Text,
   View,
-  SafeAreaView,
-  Alert,
-  Pressable,
-  Image,
-  ScrollView,
-  Button,
   TouchableOpacity,
-  Dimensions,
+  ScrollView,
+
 } from "react-native";
 import React from "react";
-import SocialMediaBtns from "../components/SocialMediaBtns";
-import avatar from "../assets/avatar.png";
 
-import NextPageBtn from "../components/NextPageBtn";
-import { useNavigation } from "@react-navigation/native";
-import { AntDesign } from "@expo/vector-icons";
-import { useMediaQuery } from "react-responsive";
-import Footer from "../components/Footer";
-import { animate, motion as m } from "framer-motion";
+import HeaderBtns from "../components/HeaderBtns";
 
-const { width, height } = Dimensions.get("window"); // Get the screen dimensions
+import PrevNextBtn from "../components/PrevNextBtn";
 
-console.log("w", width);
-console.log("h", height);
 
-const getViewPortClass = (w, h) => {
-  if (w >= 1400 && h >= 500) {
-    return "lgScreen";
-  } else {
-    return "styles";
-  }
-};
-
-const Home = "Home";
-const cstyles = getViewPortClass(width, height);
-console.log(cstyles);
-
-const HomeScreen = () => {
-  const navigation = useNavigation();
-
-  const goToAbout = () => {
-    navigation.navigate("About");
-  };
-
+const AboutScreen = () => {
   return (
-    <m.ScrollView
-      style={styles.homescreenContainer}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.75, ease: "easeOut" }}
-    >
-      {/* header area + btns  */}
-
-      {/* homescreen content  */}
-      <View style={styles.contentContainer}>
-        <View>
-          <Text style={styles.homeScreenTitle}>Juwan Hollingsworth</Text>
-        </View>
-
-        <View style={styles.homescreenImageContainer}>
-          <Image style={styles.homeScreenImage} source={avatar} />
-        </View>
-        <View style={styles.lowerTitles}>
-          <Text style={styles.homeScreenSubtitle}>Full Stack Developer</Text>
-          <Text style={styles.homeScreenLocationtitle}>Atlanta, GA 📍</Text>
-        </View>
-      </View>
-      <View style={styles.homeScreenBtnContainer}>
-        <SocialMediaBtns />
+    <View style={styles.mainContainer}>
+    <View style={styles.headingContainer}>
+    <Text style={styles.heading}>Portfolio</Text>
+    </View>
    
+      {/* button gallery */}
+      <View style={styles.btnContainer} id="btnContainter">
+        <TouchableOpacity style={styles.btn}>Show All</TouchableOpacity>
+        <TouchableOpacity style={styles.btn}>Javascript</TouchableOpacity>
+        <TouchableOpacity style={styles.btn}>C++</TouchableOpacity>
+        <TouchableOpacity style={styles.btn}>Python</TouchableOpacity>
+        <TouchableOpacity style={styles.btn}>MERN</TouchableOpacity>
+        <TouchableOpacity style={styles.btn}>Web3</TouchableOpacity>
+        <TouchableOpacity style={styles.btn}>AWS</TouchableOpacity>
       </View>
-      <Footer currentPage={Home} />
-    </m.ScrollView>
+      {/* portfolio gallery grid */}
+      <View style={styles.row}>
+      
+
+      </View>
+      <View>A</View>
+      <View>B</View>
+      <View>C</View>
+     
+
+
+
+
+
+    </View> //end
   );
 };
 
-export default HomeScreen;
+export default AboutScreen;
 
 const styles = StyleSheet.create({
-  contentContainer: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-   
-  },
-  lowerTitles: {
-    marginTop: -10,
-  },
-  headerArea: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    paddingHorizontal: 16,
-    paddingTop: 16,
-  },
-  homescreenContainer: {
-    backgroundColor: "#152238",
+ 
+  mainContainer: {
+    backgroundColor: "red",
+    // backgroundColor: "#152238",
     flex: 1,
   },
-  homeScreenTitle: {
-    fontFamily: "libre baskerville",
-    fontWeight: "400",
-    fontStyle: "italic",
-    color: "white",
-    fontSize: "5vw", // Adjust size based on viewport
-    textAlign: "center",
+  headingContainer: {  
+    justifyContent: 'center',
+    alignItems: 'center',
   },
-  homescreenImageContainer: {
-    justifyContent: "center",
-    alignItems: "center",
-    // marginBottom: height * 0.02, // Adjust spacing based on viewport
+  heading: {
+    fontSize: 36,
+    flexWrap: 'wrap',
+
   },
-  homeScreenImage: {
-    width: "50vh",
-    height: "50vh",
-    // Adjust size based on percentage of container width
-    resizeMode: "contain",
+  btnContainer: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+    marginVertical: 8,
   },
-  homeScreenSubtitle: {
-    fontFamily: "lato-Regular",
-    fontWeight: "400",
-    fontStyle: "Regular",
-    color: "white",
-    fontSize: "3vw",
-    textAlign: "center",
-    // marginBottom: height * 0.02,
+  btn: {
+    padding: 12,
   },
-  homeScreenLocationtitle: {
-    fontFamily: "lato-Regular",
-    fontWeight: "400",
-    fontStyle: "Regular",
-    color: "white",
-    fontSize: "3vw",
-    textAlign: "center",
-    // marginBottom: height * 0.02,
-  },
-  homeScreenBtnContainer: {
-    justifyContent: "flex-end",
-    alignItems: "center",
-  },
+  row:{
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+  }
+ 
 });
-// https://www.youtube.com/watch?time_continue=55&v=FdrEjwymzdY&embeds_referring_euri=https%3A%2F%2Fwww.bing.com%2F&embeds_referring_origin=https%3A%2F%2Fwww.bing.com&source_ve_path=Mjg2NjY&feature=emb_logo

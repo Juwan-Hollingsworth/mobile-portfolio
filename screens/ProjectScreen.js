@@ -57,12 +57,12 @@ const styles = StyleSheet.create({
   contentContainer: {
     flex: 1,
     alignItems: "center",
-    justifyContent: "flex-start", // Changed from default to flex-start
-    paddingTop: hp("5%"), // Add some top padding
+    justifyContent: "flex-start", 
+    paddingTop: hp("5%"), 
   },
   projectTitle: {
     width: wp(80),
-    marginBottom: hp("3%"), // Add bottom margin to create space between title and gallery
+    marginBottom: hp("3%"), 
   },
   projectTitleText: {
     fontFamily: "lato-Regular",
@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
     color: "white",
     fontSize: wp("3%"),
     textAlign: "center",
-    marginBottom: hp("1%"), // Add some space between title and subtitle
+    marginBottom: hp("1%"), 
   },
   projectSubTitleText: {
     fontFamily: "lato-Regular",

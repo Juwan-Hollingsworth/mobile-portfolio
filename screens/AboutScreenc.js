@@ -184,7 +184,7 @@ const styles = StyleSheet.create({
   },
   boxContainer2: {
     width: wp("60%"),
-    height: "300px",
+    height: hp("40%"),
     backgroundColor: "#3A3D5E",
     borderRadius: 10,
     margin: 10,

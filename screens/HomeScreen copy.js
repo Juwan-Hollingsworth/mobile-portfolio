@@ -71,8 +71,9 @@ const HomeScreen = () => {
       </View>
       <View style={styles.homeScreenBtnContainer}>
         <SocialMediaBtns />
-        <Footer currentPage={Home} />
+   
       </View>
+      <Footer currentPage={Home} />
     </m.ScrollView>
   );
 };
@@ -84,6 +85,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+   
   },
   lowerTitles: {
     marginTop: -10,
