@@ -68,14 +68,17 @@ const HomeScreen = () => {
 
           </View>
   <View style={styles.aboutCard_RightTop} >
-  <Text style={styles.bioText}>About Me</Text>
+  <View style={styles.aboutCard_RightContainer}>
+  <Text style={styles.aboutText}>About Me</Text>
                 <View style={styles.workStatus}>
                   <View>
                     <FontAwesome5 name="check-circle" size={24} color="lime" />
+                    
                   </View>
-                  <Text style={styles.bioText}>Open to work</Text>
+                  <Text style={styles.aboutText}>Open to work</Text>
+                 
                 </View>
-                <Text style={styles.bioText}>
+                <Text style={styles.aboutText}>
                   I'm Juwan, a full-stack software engineer with a Bachelor's in
                   Computer Science. I'm passionate about creating innovative
                   digital experiences and products for the web. <br /> <br />
@@ -94,12 +97,12 @@ const HomeScreen = () => {
                 </Text>
               
   </View>
-
+</View>
     </View>
     <View style={isLargeScreen ? styles.galleryRowLg : styles.galleryRowsm}>
 
   <View style={styles.aboutCard_LeftBottom} >
-  <View style={styles.boxTitle}>
+  <View style={styles.boxTitleLB}>
                 <Text> Github</Text>
                 <View style={styles.ghContainer}>
                   <GitHubCalendar
@@ -113,36 +116,58 @@ const HomeScreen = () => {
   
   </View>
   <View style={styles.aboutCard_RightBottom} >
-
   <View>
   <View style={styles.boxContainer3}>
                 <View>
                   <View style={styles.rolesInnerContainer}>
                     <View>
-                      <Text style={styles.bioText}>Latest Roles</Text>
+                      <Text style={styles.aboutText}>Latest Roles</Text>
                       {/* first section */}
                       <View style={styles.rolesContainer}>
                         <Image source={vivaticket} style={styles.roleIcon} />
                         <View>
-                          <Text style={styles.bioText}>
+                          <Text style={styles.aboutText}>
                             IT Support Specialist
                           </Text>
-                          <Text style={styles.bioText}>Vivaticket</Text>
+                          <Text style={styles.aboutText}>Vivaticket</Text>
                         </View>
                       </View>
                       {/* first section */}
                       <View style={styles.rolesContainer}>
                         <Image source={cox} style={styles.roleIcon} />
                         <View>
-                          <Text style={styles.bioText}>
+                          <Text style={styles.aboutText}>
                             Software Engineer Intern
                           </Text>
-                          <Text style={styles.bioText}>Vivaticket</Text>
+                          <Text style={styles.aboutText}>Vivaticket</Text>
                         </View>
                       </View>
                     </View>
                     <View>
-                      <Text style={styles.bioText}>Skills & Technologies</Text>
+                      <Text style={styles.aboutText}>Latest Roles</Text>
+                      {/* first section */}
+                      <View style={styles.rolesContainer}>
+                        <Image source={vivaticket} style={styles.roleIcon} />
+                        <View>
+                          <Text style={styles.aboutText}>
+                            IT Support Specialist
+                          </Text>
+                          <Text style={styles.aboutText}>Vivaticket</Text>
+                        </View>
+                      </View>
+                      {/* first section */}
+                      <View style={styles.rolesContainer}>
+                        <Image source={cox} style={styles.roleIcon} />
+                        <View>
+                          <Text style={styles.aboutText}>
+                            Software Engineer Intern
+                          </Text>
+                          <Text style={styles.aboutText}>Vivaticket</Text>
+                        </View>
+                      </View>
+                    </View>
+                    <View>
+                      <Text style={styles.aboutText}>Skills & Technologies</Text>
                       <View>
                         <View>
                           <View style={styles.rolesContainer}>
@@ -150,12 +175,12 @@ const HomeScreen = () => {
                             <View>
                               <Image source={react} style={styles.skillIcon} />
 
-                              <Text style={styles.bioText}>React Native</Text>
+                              <Text style={styles.aboutText}>React Native</Text>
                             </View>
                             <View>
                               <Image source={js} style={styles.skillIcon} />
 
-                              <Text style={styles.bioText}>Javascript</Text>
+                              <Text style={styles.aboutText}>Javascript</Text>
                             </View>
                             {/* second section */}
                           </View>
@@ -163,12 +188,12 @@ const HomeScreen = () => {
                             <View>
                               <Image source={node} style={styles.skillIcon} />
 
-                              <Text style={styles.bioText}>NodeJS</Text>
+                              <Text style={styles.aboutText}>NodeJS</Text>
                             </View>
                             <View>
                               <Image source={mongo} style={styles.skillIcon} />
 
-                              <Text style={styles.bioText}>MongoDB</Text>
+                              <Text style={styles.aboutText}>MongoDB</Text>
                             </View>
                           </View>
                         </View>
@@ -252,6 +277,14 @@ const styles = StyleSheet.create({
     justifyContent: "flex-end",
     alignItems: "center",
   },
+
+  //text 
+
+  aboutText: {
+    padding: 5,
+    color: "white",
+  },
+
    //Responsive styles
    galleryRowLg: {
     flexDirection: 'row',
@@ -330,77 +363,113 @@ const styles = StyleSheet.create({
     borderWidth: 6,  
     borderColor: "white", 
   },
+
+  aboutCard_RightContainer:{
+    padding:"10px"
+  },
+  workStatus:{
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    
+  },
+
+ //Card Styling -LB
+
   aboutCard_LeftBottom:{
+    // width: width * 0.40,
+    // height: width * 0.08,
+    // backgroundColor: "#rgb(233, 200, 34)",
+    // borderRadius: 10,
+    // borderWidth: 6,  
+    // borderColor: "white", 
+
     width: width * 0.40,
-    height: width * 0.12,
-    backgroundColor: "#rgb(233, 200, 34)",
+    height: width * 0.16,
+    backgroundColor: "rgb(233, 200, 34)",
     borderRadius: 10,
-   
-    margin: 2,
     borderWidth: 6,  
-    borderColor: "white", 
+    borderColor: "white",
+    overflow: 'hidden',
   },
-  aboutCard_RightBottom:{
-    width: width * 0.50,
-    height: width * 0.12,
-    backgroundColor: "rgb(87, 80, 115)",
-    borderRadius: 10,
-    margin: 2,
-    borderWidth: 6,  
-    borderColor: "white", 
+
+  ghContainer: {
+    width: '100%',
+    height: '80%',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
-  boxTitle: {
+  boxTitleLB: {
     width: wp("40%"),
     height: "200px",
-    backgroundColor: "yellow",
     borderRadius: 10,
     margin: 10,
     // backgroundColor: "rgba(227,229,255,255)",
   },
-  ghContainer: {
-    width: "100%",
-    height: "25px",
-    flex: 1,
-    alignItems: "center", // Center the GitHubCalendar horizontally
-    justifyContent: "center",
-  },
-  bioText: {
-    padding: 5,
-    color: "white",
-  },
-  rolesContainer: {
-    flex: 1,
-    flexDirection: "row",
-    flexWrap: "wrap",
-    alignItems: "center",
-  },
-  roleIcon: {
-    width: "50px",
-    height: "50px",
+
+   aboutCard_RightBottom: {
+    width: width * 0.50,
+    height: width * 0.16,
+    backgroundColor: "rgb(87, 80, 115)",
     borderRadius: 10,
+    margin: 2,
+    borderWidth: 6,
+    borderColor: "white",
+    padding: 10,
+  },
+  boxContainer3: {
+    flex: 1,
+    padding: 10,
   },
   rolesInnerContainer: {
     flexDirection: "row",
+    justifyContent: "space-between",
+  },
+  column: {
+    flex: 1,
+  },
+  sectionTitle: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: 'white',
+    marginBottom: 10,
+  },
+  rolesContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginBottom: 10,
+  },
+  roleIcon: {
+    width: 50,
+    height: 50,
+    borderRadius: 10,
+    marginRight: 10,
+  },
+  roleTextContainer: {
+    flex: 1,
+  },
+  skillsContainer: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "space-between",
+  },
+  skillItem: {
+    alignItems: "center",
+    width: '45%',
+    marginBottom: 10,
   },
   skillIcon: {
     width: 50,
     height: 50,
-    borderRadius: 150 / 2,
-    overflow: "hidden",
+    borderRadius: 25,
     borderWidth: 3,
     borderColor: "white",
-    marginHorizontal: "15px",
+    marginBottom: 5,
   },
-  boxContainer3: {
-    width: wp("40%"),
-    height: "200px",
-    backgroundColor: "#575073",
-    borderRadius: 10,
-    margin: 10,
-
-    padding: 20,
+  aboutText: {
+    color: "white",
+    fontSize: 12,
+    textAlign: 'center',
   },
-
 
 });
 // https://www.youtube.com/watch?time_continue=55&v=FdrEjwymzdY&embeds_referring_euri=https%3A%2F%2Fwww.bing.com%2F&embeds_referring_origin=https%3A%2F%2Fwww.bing.com&source_ve_path=Mjg2NjY&feature=emb_logo
