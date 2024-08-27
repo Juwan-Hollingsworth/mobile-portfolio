@@ -1,59 +1,35 @@
-import {
-  StyleSheet,
-  Text,
-  View,
-  TouchableOpacity,
-  ScrollView,
-  Dimensions,
-  FlatList,
-  useWindowDimensions, //get the dimensions for the viewport 
-
-} from "react-native";
+import { StyleSheet, View, Text, FlatList, Dimensions } from "react-native";
 import React from "react";
-import Footer from "../components/Footer";
-import ProjectCard from "../components/ProjectCard";
 import ProjectData from "../components/Modal/ProjectData";
+import ProjectCard from "../components/ProjectCard";
+import Footer from "../components/Footer";
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from "react-native-responsive-screen";
 
-const { width, height } = Dimensions.get('window');
-const isLargeScreen = width > 768; //large screen arg
-
-
-
-
-const AboutScreen = () => {
- 
+const ProjectScreen = () => {
+  const Projects = "Projects";
 
   return (
-    
-    <ScrollView style={styles.scrollViewContent}>
-
-   
-
-    
-    <View>
-    <View style={styles.portfolioHeadingContainer}>
-    <Text style={styles.portfolioHeading}>Portfolio</Text>
-    <Text style={styles.portfolioSubtitle}>A collection of professional and personal projects I have worked on over the span of my career. This list is ever growing and can be followed more in depth on Github but I try to add the most signficant ones here.</Text>
-    </View>
-   
-      {/* button gallery */}
-      <View style={styles.btnContainer} id="btnContainter">
-        <TouchableOpacity style={styles.portfolioBtn}>Show All</TouchableOpacity>
-        <TouchableOpacity style={styles.portfolioBtn}>Javascript</TouchableOpacity>
-        <TouchableOpacity style={styles.portfolioBtn}>C++</TouchableOpacity>
-        <TouchableOpacity style={styles.portfolioBtn}>Python</TouchableOpacity>
-        <TouchableOpacity style={styles.portfolioBtn}>MERN</TouchableOpacity>
-        <TouchableOpacity style={styles.portfolioBtn}>Web3</TouchableOpacity>
-        <TouchableOpacity style={styles.portfolioBtn}>AWS</TouchableOpacity>
-      </View>
-      {/* portfolio gallery grid */}
-   
-      <View style={[styles.galleryRow, isLargeScreen ? styles.galleryRowLg : styles.galleryRowsm]}>
-     
-      <FlatList
-          
-          contentContainerStyle={[styles.galleryRow, isLargeScreen ? styles.galleryRowLg : styles.galleryRowsm]}
-          data={ProjectData.slice(0, 3)}
+    <View style={styles.container}>
+      <View style={styles.contentContainer}>
+        <View style={styles.projectTitle}>
+          <Text style={styles.projectTitleText}>
+            Projects I've worked on 👾
+          </Text>
+          <Text style={styles.projectSubTitleText}>
+            A collection of impactful projects that I have worked on throughout
+            my software engineering journey. From innovative web applications to
+            robust software solutions, this portfolio showcases my expertise and
+            the value I bring to the table.
+          </Text>
+        </View>
+        <FlatList
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          contentContainerStyle={styles.projectGrid}
+          data={ProjectData.slice(0, 5)}
           renderItem={({ item }) => (
             <ProjectCard
               key={item.id}
@@ -65,128 +41,46 @@ const AboutScreen = () => {
           )}
           keyExtractor={(item) => item.id.toString()}
         />
-    
-    
-    
-      
       </View>
-      <View>B</View>
-      <View>C</View>
-     
-
-
-
-<View style={styles.galleryFooter}></View>
-      
-    </View> //end
-    <Footer currentPage={"About"} />
-    </ScrollView>
-    
-    
+      <Footer currentPage={Projects} />
+    </View>
   );
 };
 
-export default AboutScreen;
+export default ProjectScreen;
 
 const styles = StyleSheet.create({
-  scrollViewContent: {
-    flexGrow: 1,
+  container: {
+    flex: 1,
     backgroundColor: "#152238",
   },
- 
-
-  portfolioHeadingContainer: {  
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginBottom: 20,
+  contentContainer: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "flex-start", 
+    paddingTop: hp("5%"), 
   },
-  portfolioHeading: {
-    fontSize: width * 0.04,
-    flexWrap: 'wrap',
-    color: 'white'
-
+  projectTitle: {
+    width: wp(80),
+    marginBottom: hp("3%"), 
   },
-  portfolioSubtitle: {
-    fontSize: width * 0.01, 
-    color: 'white',
-    width: '70%',
-    textAlign:"center",
+  projectTitleText: {
+    fontFamily: "lato-Regular",
+    fontWeight: "400",
+    color: "white",
+    fontSize: wp("3%"),
+    textAlign: "center",
+    marginBottom: hp("1%"), 
   },
-
-  btnContainer: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    justifyContent: 'center',
-    marginVertical: 8,
+  projectSubTitleText: {
+    fontFamily: "lato-Regular",
+    fontWeight: "400",
+    color: "white",
+    fontSize: wp("2%"),
+    textAlign: "center",
   },
-  portfolioBtn: {
-    padding: 12,
-    color: 'white',
+  projectGrid: {
+    alignItems: "center",
+    justifyContent: "center",
   },
-
-  galleryRow:{
- 
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-     alignItems: "center",
-     justifyContent:'center',
-  },
-  galleryCard:{
-    flexDirection:'column',
-    flexWrap: 'wrap',
-    width: '30%', 
-    padding: '10px',
-    color: 'yellow',
-   
-
-  },
-  galleryContentBorder:{
-    backgroundColor: 'white',
-    height: width * 0.2,
-    borderRadius: 10,
-    overflow:"hidden",
-    padding: 25,
-
-  },
-  galleryContent:{
-    backgroundColor: 'red',
-    borderRadius: 10,
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: '100%', 
-    width: '100%',
-
-  },
-
-  //Responsive styles
-  galleryRowLg: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-     alignItems: "center",
-     justifyContent:'center',
-    
-  },
-  galleryRowsm: {
-    flexDirection: 'column',
-
-  },
-  galleryCardLg: {
-    flexDirection:'column',
-    flexWrap: 'wrap',
-    width: '30%', 
-    padding: '10px',
-    color: 'yellow',
-  
-
-  },
-  galleryCardsm: {
-    flexDirection:'row',
-
-  },
-  galleryFooter:{
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
-  }
 });
