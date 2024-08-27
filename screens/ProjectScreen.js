@@ -1,12 +1,26 @@
-import { StyleSheet, View, Text, FlatList, Dimensions } from "react-native";
-import React from "react";
-import ProjectData from "../components/Modal/ProjectData";
-import ProjectCard from "../components/ProjectCard";
-import Footer from "../components/Footer";
+import {
+  StyleSheet,
+  View,
+  Dimensions,
+  TouchableOpacity,
+  Image,
+  Text,
+  ScrollView,
+  FlatList,
+} from "react-native";
+
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
+import React from "react";
+import ProjectData from "../components/Modal/ProjectData";
+import ProjectCard from "../components/ProjectCard";
+import Footer from "../components/Footer";
+
+const { width, height } = Dimensions.get('window');
+const isLargeScreen = width > 768; //large screen arg
+
 
 const ProjectScreen = () => {
   const Projects = "Projects";
@@ -26,7 +40,7 @@ const ProjectScreen = () => {
           </Text>
         </View>
         <FlatList
-          horizontal
+          horizontal={isLargeScreen}
           showsHorizontalScrollIndicator={false}
           contentContainerStyle={styles.projectGrid}
           data={ProjectData.slice(0, 5)}

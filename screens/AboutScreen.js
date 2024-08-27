@@ -1,16 +1,29 @@
-import { StyleSheet, Text, View, Image } from "react-native";
-import React from "react";
+import {
+  StyleSheet,
+  View,
+  Dimensions,
+  TouchableOpacity,
+  Image,
+  Text,
+  ScrollView,
+} from "react-native";
 
-import { TouchableOpacity } from "react-native";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
-import Footer from "../components/Footer";
-import { FlatList } from "react-native";
-import juwan from "../assets/juwan.jpg";
-import { FontAwesome5 } from "@expo/vector-icons";
+
 import GitHubCalendar from "react-github-calendar";
+
+
+
+//imports 
+import React from "react";
+import Footer from "../components/Footer";
+import { animate, motion as m } from "framer-motion";
+import { FontAwesome5 } from "@expo/vector-icons";
+//assets
+import juwan from "../assets/juwan.jpg";
 import vivaticket from "../assets/vivaticket.png";
 import cox from "../assets/cox.jpg";
 import react from "../assets/react.png";
@@ -18,38 +31,55 @@ import node from "../assets/nodejs.png";
 import mongo from "../assets/mongo.png";
 import js from "../assets/js.png";
 
-const AboutDraft = () => {
+
+const { width, height } = Dimensions.get('window');
+const isLargeScreen = width > 768; //large screen arg
+
+
+const HomeScreen = () => {
+
   return (
-    <View style={styles.homescreenContainer}>
-      <View style={styles.totBoxContainer}>
-        <View>
-          {/* ROW 1 */}
-          <View style={styles.newContainer}>
+    <ScrollView
+      style={styles.homescreenContainer}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.75, ease: "easeOut" }}
+    >
+      {/* header area + btns  */}
+
+      {/* homescreen content  */}
+      <View style={styles.contentContainer}>
+      <View style={isLargeScreen ? styles.galleryRowLg : styles.galleryRowsm}>
+
+  <View style={styles.aboutCard_LeftTop} >
             <View>
-              {" "}
-              <View style={styles.boxContainerLeft}>
-                <Image source={juwan} style={styles.aboutImage} />
-                <Text style={styles.aboutText}>Juwan Hollingsworth</Text>
-                <Text style={[styles.aboutText, { marginBottom: 5 }]}>
-                  Jhollingsworth5@student.clayton.edu
-                </Text>
-                <TouchableOpacity>
-                  <View style={styles.resumeBtn}>
-                    <Text style={styles.resumeText}>Download Resume</Text>
-                  </View>
-                </TouchableOpacity>
-              </View>
+            <View style={styles.imageContainer}>
+      <Image source={juwan} style={styles.aboutImage} />
+    </View>
+              <Text style={styles.aboutText}>Juwan Hollingsworth</Text>
+              <Text style={[styles.aboutText, { marginBottom: 5 }]}>
+                Jhollingsworth5@student.clayton.edu
+              </Text>
+              <TouchableOpacity>
+                <View style={styles.resumeBtn}>
+                  <Text style={styles.resumeText}>Download Resume</Text>
+                </View>
+              </TouchableOpacity>
             </View>
-            <View>
-              <View style={styles.boxContainer2}>
-                <Text style={styles.bioText}>About Me</Text>
+
+          </View>
+  <View style={styles.aboutCard_RightTop} >
+  <View style={styles.aboutCard_RightContainer}>
+  <Text style={styles.aboutText}>About Me</Text>
                 <View style={styles.workStatus}>
                   <View>
                     <FontAwesome5 name="check-circle" size={24} color="lime" />
+                    
                   </View>
-                  <Text style={styles.bioText}>Open to work</Text>
+                  <Text style={styles.aboutText}>Open to work</Text>
+                 
                 </View>
-                <Text style={styles.bioText}>
+                <Text style={styles.aboutText}>
                   I'm Juwan, a full-stack software engineer with a Bachelor's in
                   Computer Science. I'm passionate about creating innovative
                   digital experiences and products for the web. <br /> <br />
@@ -66,13 +96,14 @@ const AboutDraft = () => {
                   best practices to deliver high-quality, user-centric web
                   applications that drive business success.
                 </Text>
-              </View>
-            </View>
-          </View>
-          {/* ROW 2 */}
-          <View style={styles.newContainer}>
-            <View>
-              <View style={styles.boxTitle}>
+              
+  </View>
+</View>
+    </View>
+    <View style={isLargeScreen ? styles.galleryRowLg : styles.galleryRowsm}>
+
+  <View style={styles.aboutCard_LeftBottom} >
+  <View style={styles.boxTitleLB}>
                 <Text> Github</Text>
                 <View style={styles.ghContainer}>
                   <GitHubCalendar
@@ -83,36 +114,61 @@ const AboutDraft = () => {
                   />
                 </View>
               </View>
-            </View>
-            <View>
-              <View style={styles.boxContainer3}>
+  
+  </View>
+  <View style={styles.aboutCard_RightBottom} >
+  <View>
+  <View style={styles.boxContainer3}>
                 <View>
                   <View style={styles.rolesInnerContainer}>
                     <View>
-                      <Text style={styles.bioText}>Latest Roles</Text>
+                      <Text style={styles.aboutText}>Latest Roles</Text>
                       {/* first section */}
                       <View style={styles.rolesContainer}>
                         <Image source={vivaticket} style={styles.roleIcon} />
                         <View>
-                          <Text style={styles.bioText}>
+                          <Text style={styles.aboutText}>
                             IT Support Specialist
                           </Text>
-                          <Text style={styles.bioText}>Vivaticket</Text>
+                          <Text style={styles.aboutText}>Vivaticket</Text>
                         </View>
                       </View>
                       {/* first section */}
                       <View style={styles.rolesContainer}>
                         <Image source={cox} style={styles.roleIcon} />
                         <View>
-                          <Text style={styles.bioText}>
+                          <Text style={styles.aboutText}>
                             Software Engineer Intern
                           </Text>
-                          <Text style={styles.bioText}>Vivaticket</Text>
+                          <Text style={styles.aboutText}>Vivaticket</Text>
                         </View>
                       </View>
                     </View>
                     <View>
-                      <Text style={styles.bioText}>Skills & Technologies</Text>
+                      <Text style={styles.aboutText}>Latest Roles</Text>
+                      {/* first section */}
+                      <View style={styles.rolesContainer}>
+                        <Image source={vivaticket} style={styles.roleIcon} />
+                        <View>
+                          <Text style={styles.aboutText}>
+                            IT Support Specialist
+                          </Text>
+                          <Text style={styles.aboutText}>Vivaticket</Text>
+                        </View>
+                      </View>
+                      {/* first section */}
+                      <View style={styles.rolesContainer}>
+                        <Image source={cox} style={styles.roleIcon} />
+                        <View>
+                          <Text style={styles.aboutText}>
+                            Software Engineer Intern
+                          </Text>
+                          <Text style={styles.aboutText}>Vivaticket</Text>
+                        </View>
+                      </View>
+                    </View>
+                    <View>
+                      <Text style={styles.aboutText}>Skills & Technologies</Text>
                       <View>
                         <View>
                           <View style={styles.rolesContainer}>
@@ -120,12 +176,12 @@ const AboutDraft = () => {
                             <View>
                               <Image source={react} style={styles.skillIcon} />
 
-                              <Text style={styles.bioText}>React Native</Text>
+                              <Text style={styles.aboutText}>React Native</Text>
                             </View>
                             <View>
                               <Image source={js} style={styles.skillIcon} />
 
-                              <Text style={styles.bioText}>Javascript</Text>
+                              <Text style={styles.aboutText}>Javascript</Text>
                             </View>
                             {/* second section */}
                           </View>
@@ -133,12 +189,12 @@ const AboutDraft = () => {
                             <View>
                               <Image source={node} style={styles.skillIcon} />
 
-                              <Text style={styles.bioText}>NodeJS</Text>
+                              <Text style={styles.aboutText}>NodeJS</Text>
                             </View>
                             <View>
                               <Image source={mongo} style={styles.skillIcon} />
 
-                              <Text style={styles.bioText}>MongoDB</Text>
+                              <Text style={styles.aboutText}>MongoDB</Text>
                             </View>
                           </View>
                         </View>
@@ -146,89 +202,140 @@ const AboutDraft = () => {
                     </View>
                   </View>
                 </View>
-              </View>
-            </View>
-          </View>
-        </View>
-      </View>
-      <Footer currentPage={"About"} />
+              </View> </View>
+
+  </View>
+
     </View>
+      </View>
+   
+      <Footer currentPage={"About"} />
+    </ScrollView>
   );
 };
 
-export default AboutDraft;
+export default HomeScreen;
 
 const styles = StyleSheet.create({
+  contentContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    paddingBottom: "100px",
+   
+  },
+  lowerTitles: {
+    marginTop: -10,
+  },
+  headerArea: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    paddingHorizontal: 16,
+    paddingTop: 16,
+  },
   homescreenContainer: {
     backgroundColor: "#152238",
     flex: 1,
   },
-  boxTitle: {
-    width: wp("40%"),
-    height: "200px",
-    backgroundColor: "yellow",
-    borderRadius: 10,
-    margin: 10,
-    // backgroundColor: "rgba(227,229,255,255)",
+  homeScreenTitle: {
+    fontFamily: "libre baskerville",
+    fontWeight: "400",
+    fontStyle: "italic",
+    color: "white",
+    fontSize: "5vw", // Adjust size based on viewport
+    textAlign: "center",
   },
-  boxContainerLeft: {
-    width: wp("20%"),
-    height: "300px",
-    backgroundColor: "#004D6A",
-    // backgroundColor: "#004E6D",
-
-    borderRadius: 10,
-    margin: 10,
-    alignItems: "center", // Center content horizontally
-    justifyContent: "center", // Center content vertically
-  },
-  boxContainer2: {
-    width: wp("60%"),
-    height: hp("40%"),
-    backgroundColor: "#3A3D5E",
-    borderRadius: 10,
-    margin: 10,
-    padding: 20,
-  },
-  boxContainer3: {
-    width: wp("40%"),
-    height: "200px",
-    backgroundColor: "#575073",
-    borderRadius: 10,
-    margin: 10,
-
-    padding: 20,
-  },
-  totBoxContainer: {
-    flexDirection: "row",
-    padding: 20,
-    height: hp("80%"), // 70% of height device screen
-    width: wp("100%"),
-    alignItems: "center",
+  homescreenImageContainer: {
     justifyContent: "center",
+    alignItems: "center",
+    // marginBottom: height * 0.02, // Adjust spacing based on viewport
+  },
+  homeScreenImage: {
+    width: "50vh",
+    height: "50vh",
+    // Adjust size based on percentage of container width
+    resizeMode: "contain",
+  },
+  homeScreenSubtitle: {
+    fontFamily: "lato-Regular",
+    fontWeight: "400",
+    fontStyle: "Regular",
+    color: "white",
+    fontSize: "3vw",
+    textAlign: "center",
+    // marginBottom: height * 0.02,
+  },
+  homeScreenLocationtitle: {
+    fontFamily: "lato-Regular",
+    fontWeight: "400",
+    fontStyle: "Regular",
+    color: "white",
+    fontSize: "3vw",
+    textAlign: "center",
+    // marginBottom: height * 0.02,
+  },
+  homeScreenBtnContainer: {
+    justifyContent: "flex-end",
+    alignItems: "center",
   },
 
+  //text 
+
+  aboutText: {
+    padding: 5,
+    color: "white",
+  },
+
+   //Responsive styles
+   galleryRowLg: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+     alignItems: "center",
+     justifyContent:'center',
+    
+  },
+  galleryRowsm: {
+    flexDirection: 'column',
+
+  },
+
+  //Card Styling -LT
+  aboutCard_LeftTop: {
+   width: isLargeScreen ? width * 0.30 : '100%',
+    height: isLargeScreen ? width * 0.22 : 'auto',
+    backgroundColor: "rgb(0, 77, 106)",
+    borderRadius: 10,
+    margin: 2,
+    borderWidth: 6,  
+    borderColor: "white",
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  contentContainer: {
+    alignItems: 'center',
+  },
   aboutImage: {
     width: 150,
     height: 150,
-    borderRadius: 150 / 2,
+    borderRadius: 75,
     overflow: "hidden",
     borderWidth: 3,
     borderColor: "white",
-    padding: 10,
-  },
-  workStatus: {
-    flex: 1,
-    flexDirection: "row",
-    flexWrap: "wrap",
-    alignItems: "center",
     marginBottom: 10,
+  },
+  aboutText: {
+    padding: 5,
+    color: "white",
+    textAlign: 'center',
+  },
+  resumeBtnContainer: {
+    alignSelf: 'center',
   },
   resumeBtn: {
     alignItems: "center",
     justifyContent: "center",
     paddingVertical: 12,
-    paddingHorizontal: 12,
+    paddingHorizontal: 32,
     borderRadius: 4,
     elevation: 3,
     backgroundColor: "black",
@@ -240,48 +347,133 @@ const styles = StyleSheet.create({
     letterSpacing: 0.25,
     color: "white",
   },
-  rolesContainer: {
+  imageContainer: {
+    width: '100%',
+    alignItems: 'center',
+    marginBottom: 10,
+  },
+
+ //Card Styling -RT
+  aboutCard_RightTop:{
+    width: isLargeScreen ? width * 0.60 : '100%',
+    height: isLargeScreen ? width * 0.22 : 'auto',
+    // width: width * 0.60,
+    // height: width * 0.22,
+    backgroundColor: "#rgb(58, 61, 94)",
+    borderRadius: 10,
+   
+    margin: 2,
+    borderWidth: 6,  
+    borderColor: "white", 
+  },
+
+  aboutCard_RightContainer:{
+    padding:"10px"
+  },
+  workStatus:{
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    
+  },
+  
+
+ //Card Styling -LB
+
+  aboutCard_LeftBottom:{
+    // width: width * 0.40,
+    // height: width * 0.08,
+    // backgroundColor: "#rgb(233, 200, 34)",
+    // borderRadius: 10,
+    // borderWidth: 6,  
+    // borderColor: "white", 
+
+    width: isLargeScreen ? width * 0.40 : '100%',
+    height: isLargeScreen ? width * 0.16 : 'auto',
+    backgroundColor: "rgb(233, 200, 34)",
+    borderRadius: 10,
+    borderWidth: 6,  
+    borderColor: "white",
+    overflow: 'hidden',
+  },
+
+  ghContainer: {
+    width: '100%',
+    height: '80%',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  boxTitleLB: {
+    width: wp("40%"),
+    height: "200px",
+    borderRadius: 10,
+    margin: 10,
+    // backgroundColor: "rgba(227,229,255,255)",
+  },
+
+   aboutCard_RightBottom: {
+    width: isLargeScreen ? width * 0.50 : '100%',
+    height: isLargeScreen ? width * 0.16 : 'auto',
+    backgroundColor: "rgb(87, 80, 115)",
+    borderRadius: 10,
+    margin: 2,
+    borderWidth: 6,
+    borderColor: "white",
+    padding: 10,
+  },
+  boxContainer3: {
     flex: 1,
+    padding: 10,
+  },
+  rolesInnerContainer: {
     flexDirection: "row",
-    flexWrap: "wrap",
+    justifyContent: "space-between",
+  },
+  column: {
+    flex: 1,
+  },
+  sectionTitle: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: 'white',
+    marginBottom: 10,
+  },
+  rolesContainer: {
+    flexDirection: "row",
     alignItems: "center",
+    marginBottom: 10,
   },
   roleIcon: {
-    width: "50px",
-    height: "50px",
+    width: 50,
+    height: 50,
     borderRadius: 10,
+    marginRight: 10,
+  },
+  roleTextContainer: {
+    flex: 1,
+  },
+  skillsContainer: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "space-between",
+  },
+  skillItem: {
+    alignItems: "center",
+    width: '45%',
+    marginBottom: 10,
   },
   skillIcon: {
     width: 50,
     height: 50,
-    borderRadius: 150 / 2,
-    overflow: "hidden",
+    borderRadius: 25,
     borderWidth: 3,
     borderColor: "white",
-    marginHorizontal: "15px",
-  },
-  ghContainer: {
-    width: "100%",
-    height: "25px",
-    flex: 1,
-    alignItems: "center", // Center the GitHubCalendar horizontally
-    justifyContent: "center",
+    marginBottom: 5,
   },
   aboutText: {
-    padding: 5,
     color: "white",
+    fontSize: 12,
+    textAlign: 'center',
   },
-  bioText: {
-    padding: 5,
-    color: "white",
-  },
-  newContainer: {
-    flexDirection: "row",
-  },
-  rolesInnerContainer: {
-    flexDirection: "row",
-  },
-});
 
-// https://grubersjoe.github.io/react-github-calendar/
-// https://github.com/grubersjoe/react-activity-calendar
+});
+// https://www.youtube.com/watch?time_continue=55&v=FdrEjwymzdY&embeds_referring_euri=https%3A%2F%2Fwww.bing.com%2F&embeds_referring_origin=https%3A%2F%2Fwww.bing.com&source_ve_path=Mjg2NjY&feature=emb_logo

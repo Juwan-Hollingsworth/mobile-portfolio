@@ -1,41 +1,40 @@
 import {
   StyleSheet,
-  View,
-  Dimensions,
-  TouchableOpacity,
-  Image,
   Text,
+  View,
+  Image,
+  Dimensions,
 } from "react-native";
-
-import {
-  widthPercentageToDP as wp,
-  heightPercentageToDP as hp,
-} from "react-native-responsive-screen";
-
-import GitHubCalendar from "react-github-calendar";
-
-
-
-//imports 
 import React from "react";
+import SocialMediaBtns from "../components/SocialMediaBtns";
+import avatar from "../assets/avatar.png";
+import { useNavigation } from "@react-navigation/native";
 import Footer from "../components/Footer";
 import { animate, motion as m } from "framer-motion";
-import { FontAwesome5 } from "@expo/vector-icons";
-//assets
-import juwan from "../assets/juwan.jpg";
-import vivaticket from "../assets/vivaticket.png";
-import cox from "../assets/cox.jpg";
-import react from "../assets/react.png";
-import node from "../assets/nodejs.png";
-import mongo from "../assets/mongo.png";
-import js from "../assets/js.png";
 
+const { width, height } = Dimensions.get("window"); // Get the screen dimensions
 
-const { width, height } = Dimensions.get('window');
-const isLargeScreen = width > 768; //large screen arg
+console.log("w", width);
+console.log("h", height);
 
+const getViewPortClass = (w, h) => {
+  if (w >= 1400 && h >= 500) {
+    return "lgScreen";
+  } else {
+    return "styles";
+  }
+};
+
+const Home = "Home";
+const cstyles = getViewPortClass(width, height);
+console.log(cstyles);
 
 const HomeScreen = () => {
+  const navigation = useNavigation();
+
+  const goToAbout = () => {
+    navigation.navigate("About");
+  };
 
   return (
     <m.ScrollView
@@ -48,167 +47,23 @@ const HomeScreen = () => {
 
       {/* homescreen content  */}
       <View style={styles.contentContainer}>
-      <View style={isLargeScreen ? styles.galleryRowLg : styles.galleryRowsm}>
+        <View>
+          <Text style={styles.homeScreenTitle}>Juwan Hollingsworth</Text>
+        </View>
 
-  <View style={styles.aboutCard_LeftTop} >
-            <View>
-            <View style={styles.imageContainer}>
-      <Image source={juwan} style={styles.aboutImage} />
-    </View>
-              <Text style={styles.aboutText}>Juwan Hollingsworth</Text>
-              <Text style={[styles.aboutText, { marginBottom: 5 }]}>
-                Jhollingsworth5@student.clayton.edu
-              </Text>
-              <TouchableOpacity>
-                <View style={styles.resumeBtn}>
-                  <Text style={styles.resumeText}>Download Resume</Text>
-                </View>
-              </TouchableOpacity>
-            </View>
-
-          </View>
-  <View style={styles.aboutCard_RightTop} >
-  <View style={styles.aboutCard_RightContainer}>
-  <Text style={styles.aboutText}>About Me</Text>
-                <View style={styles.workStatus}>
-                  <View>
-                    <FontAwesome5 name="check-circle" size={24} color="lime" />
-                    
-                  </View>
-                  <Text style={styles.aboutText}>Open to work</Text>
-                 
-                </View>
-                <Text style={styles.aboutText}>
-                  I'm Juwan, a full-stack software engineer with a Bachelor's in
-                  Computer Science. I'm passionate about creating innovative
-                  digital experiences and products for the web. <br /> <br />
-                  My journey began in high school when I ran an online business
-                  and saw the power of digital transformation. This sparked my
-                  interest in web development, and I taught myself Dreamweaver
-                  and continued to build my coding skills.
-                  <br /> <br /> During my studies at Clayton State University,
-                  I've had the opportunity to work with renowned companies in
-                  Atlanta, including COX Automotive, MailChimp, and Spark
-                  Social. These experiences have honed my skills in creating
-                  accessible and inclusive digital solutions.
-                  <br /> <br /> Today, I leverage the latest technologies and
-                  best practices to deliver high-quality, user-centric web
-                  applications that drive business success.
-                </Text>
-              
-  </View>
-</View>
-    </View>
-    <View style={isLargeScreen ? styles.galleryRowLg : styles.galleryRowsm}>
-
-  <View style={styles.aboutCard_LeftBottom} >
-  <View style={styles.boxTitleLB}>
-                <Text> Github</Text>
-                <View style={styles.ghContainer}>
-                  <GitHubCalendar
-                    username="Juwan-Hollingsworth"
-                    colorScheme="dark"
-                    blockSize={6}
-                    year={2023}
-                  />
-                </View>
-              </View>
-  
-  </View>
-  <View style={styles.aboutCard_RightBottom} >
-  <View>
-  <View style={styles.boxContainer3}>
-                <View>
-                  <View style={styles.rolesInnerContainer}>
-                    <View>
-                      <Text style={styles.aboutText}>Latest Roles</Text>
-                      {/* first section */}
-                      <View style={styles.rolesContainer}>
-                        <Image source={vivaticket} style={styles.roleIcon} />
-                        <View>
-                          <Text style={styles.aboutText}>
-                            IT Support Specialist
-                          </Text>
-                          <Text style={styles.aboutText}>Vivaticket</Text>
-                        </View>
-                      </View>
-                      {/* first section */}
-                      <View style={styles.rolesContainer}>
-                        <Image source={cox} style={styles.roleIcon} />
-                        <View>
-                          <Text style={styles.aboutText}>
-                            Software Engineer Intern
-                          </Text>
-                          <Text style={styles.aboutText}>Vivaticket</Text>
-                        </View>
-                      </View>
-                    </View>
-                    <View>
-                      <Text style={styles.aboutText}>Latest Roles</Text>
-                      {/* first section */}
-                      <View style={styles.rolesContainer}>
-                        <Image source={vivaticket} style={styles.roleIcon} />
-                        <View>
-                          <Text style={styles.aboutText}>
-                            IT Support Specialist
-                          </Text>
-                          <Text style={styles.aboutText}>Vivaticket</Text>
-                        </View>
-                      </View>
-                      {/* first section */}
-                      <View style={styles.rolesContainer}>
-                        <Image source={cox} style={styles.roleIcon} />
-                        <View>
-                          <Text style={styles.aboutText}>
-                            Software Engineer Intern
-                          </Text>
-                          <Text style={styles.aboutText}>Vivaticket</Text>
-                        </View>
-                      </View>
-                    </View>
-                    <View>
-                      <Text style={styles.aboutText}>Skills & Technologies</Text>
-                      <View>
-                        <View>
-                          <View style={styles.rolesContainer}>
-                            {/* first section */}
-                            <View>
-                              <Image source={react} style={styles.skillIcon} />
-
-                              <Text style={styles.aboutText}>React Native</Text>
-                            </View>
-                            <View>
-                              <Image source={js} style={styles.skillIcon} />
-
-                              <Text style={styles.aboutText}>Javascript</Text>
-                            </View>
-                            {/* second section */}
-                          </View>
-                          <View style={styles.rolesContainer}>
-                            <View>
-                              <Image source={node} style={styles.skillIcon} />
-
-                              <Text style={styles.aboutText}>NodeJS</Text>
-                            </View>
-                            <View>
-                              <Image source={mongo} style={styles.skillIcon} />
-
-                              <Text style={styles.aboutText}>MongoDB</Text>
-                            </View>
-                          </View>
-                        </View>
-                      </View>
-                    </View>
-                  </View>
-                </View>
-              </View> </View>
-
-  </View>
-
-    </View>
+        <View style={styles.homescreenImageContainer}>
+          <Image style={styles.homeScreenImage} source={avatar} />
+        </View>
+        <View style={styles.lowerTitles}>
+          <Text style={styles.homeScreenSubtitle}>Full Stack Developer</Text>
+          <Text style={styles.homeScreenLocationtitle}>Atlanta, GA 📍</Text>
+        </View>
       </View>
+      <View style={styles.homeScreenBtnContainer}>
+        <SocialMediaBtns />
    
-      <Footer currentPage={"About"} />
+      </View>
+      <Footer currentPage={Home} />
     </m.ScrollView>
   );
 };
@@ -220,7 +75,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    paddingBottom: "100px",
    
   },
   lowerTitles: {
@@ -277,199 +131,5 @@ const styles = StyleSheet.create({
     justifyContent: "flex-end",
     alignItems: "center",
   },
-
-  //text 
-
-  aboutText: {
-    padding: 5,
-    color: "white",
-  },
-
-   //Responsive styles
-   galleryRowLg: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-     alignItems: "center",
-     justifyContent:'center',
-    
-  },
-  galleryRowsm: {
-    flexDirection: 'column',
-
-  },
-
-  //Card Styling -LT
-  aboutCard_LeftTop: {
-    width: width * 0.30,
-    height: width * 0.22,
-    backgroundColor: "rgb(0, 77, 106)",
-    borderRadius: 10,
-    margin: 2,
-    borderWidth: 6,  
-    borderColor: "white",
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  contentContainer: {
-    alignItems: 'center',
-  },
-  aboutImage: {
-    width: 150,
-    height: 150,
-    borderRadius: 75,
-    overflow: "hidden",
-    borderWidth: 3,
-    borderColor: "white",
-    marginBottom: 10,
-  },
-  aboutText: {
-    padding: 5,
-    color: "white",
-    textAlign: 'center',
-  },
-  resumeBtnContainer: {
-    alignSelf: 'center',
-  },
-  resumeBtn: {
-    alignItems: "center",
-    justifyContent: "center",
-    paddingVertical: 12,
-    paddingHorizontal: 32,
-    borderRadius: 4,
-    elevation: 3,
-    backgroundColor: "black",
-  },
-  resumeText: {
-    fontSize: 16,
-    lineHeight: 21,
-    fontWeight: "bold",
-    letterSpacing: 0.25,
-    color: "white",
-  },
-  imageContainer: {
-    width: '100%',
-    alignItems: 'center',
-    marginBottom: 10,
-  },
-
- //Card Styling -RT
-  aboutCard_RightTop:{
-    width: width * 0.60,
-    height: width * 0.22,
-    backgroundColor: "#rgb(58, 61, 94)",
-    borderRadius: 10,
-   
-    margin: 2,
-    borderWidth: 6,  
-    borderColor: "white", 
-  },
-
-  aboutCard_RightContainer:{
-    padding:"10px"
-  },
-  workStatus:{
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    
-  },
-
- //Card Styling -LB
-
-  aboutCard_LeftBottom:{
-    // width: width * 0.40,
-    // height: width * 0.08,
-    // backgroundColor: "#rgb(233, 200, 34)",
-    // borderRadius: 10,
-    // borderWidth: 6,  
-    // borderColor: "white", 
-
-    width: width * 0.40,
-    height: width * 0.16,
-    backgroundColor: "rgb(233, 200, 34)",
-    borderRadius: 10,
-    borderWidth: 6,  
-    borderColor: "white",
-    overflow: 'hidden',
-  },
-
-  ghContainer: {
-    width: '100%',
-    height: '80%',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  boxTitleLB: {
-    width: wp("40%"),
-    height: "200px",
-    borderRadius: 10,
-    margin: 10,
-    // backgroundColor: "rgba(227,229,255,255)",
-  },
-
-   aboutCard_RightBottom: {
-    width: width * 0.50,
-    height: width * 0.16,
-    backgroundColor: "rgb(87, 80, 115)",
-    borderRadius: 10,
-    margin: 2,
-    borderWidth: 6,
-    borderColor: "white",
-    padding: 10,
-  },
-  boxContainer3: {
-    flex: 1,
-    padding: 10,
-  },
-  rolesInnerContainer: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-  },
-  column: {
-    flex: 1,
-  },
-  sectionTitle: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    color: 'white',
-    marginBottom: 10,
-  },
-  rolesContainer: {
-    flexDirection: "row",
-    alignItems: "center",
-    marginBottom: 10,
-  },
-  roleIcon: {
-    width: 50,
-    height: 50,
-    borderRadius: 10,
-    marginRight: 10,
-  },
-  roleTextContainer: {
-    flex: 1,
-  },
-  skillsContainer: {
-    flexDirection: "row",
-    flexWrap: "wrap",
-    justifyContent: "space-between",
-  },
-  skillItem: {
-    alignItems: "center",
-    width: '45%',
-    marginBottom: 10,
-  },
-  skillIcon: {
-    width: 50,
-    height: 50,
-    borderRadius: 25,
-    borderWidth: 3,
-    borderColor: "white",
-    marginBottom: 5,
-  },
-  aboutText: {
-    color: "white",
-    fontSize: 12,
-    textAlign: 'center',
-  },
-
 });
 // https://www.youtube.com/watch?time_continue=55&v=FdrEjwymzdY&embeds_referring_euri=https%3A%2F%2Fwww.bing.com%2F&embeds_referring_origin=https%3A%2F%2Fwww.bing.com&source_ve_path=Mjg2NjY&feature=emb_logo
