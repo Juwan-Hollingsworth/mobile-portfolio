@@ -32,8 +32,11 @@ import mongo from "../assets/mongo.png";
 import js from "../assets/js.png";
 
 
+// Define screen css
 const { width, height } = Dimensions.get('window');
 const isLargeScreen = width > 768; //large screen arg
+const smallScreenContainerSize = Math.min(width * 0.8)
+const smallScreenPadding = 10;
 
 
 const HomeScreen = () => {
@@ -308,11 +311,11 @@ const styles = StyleSheet.create({
 
   //Card Styling -LT
   aboutCard_LeftTop: {
-   width: isLargeScreen ? width * 0.30 : '100%',
-    height: isLargeScreen ? width * 0.22 : 'auto',
+   width: isLargeScreen ? width * 0.30 : smallScreenContainerSize,
+    height: isLargeScreen ? width * 0.22 : smallScreenContainerSize,
     backgroundColor: "rgb(0, 77, 106)",
     borderRadius: 10,
-    margin: 2,
+    margin: isLargeScreen ? 2 : smallScreenPadding,
     borderWidth: 6,  
     borderColor: "white",
     justifyContent: 'center',
@@ -362,14 +365,14 @@ const styles = StyleSheet.create({
 
  //Card Styling -RT
   aboutCard_RightTop:{
-    width: isLargeScreen ? width * 0.60 : '100%',
-    height: isLargeScreen ? width * 0.22 : 'auto',
+    width: isLargeScreen ? width * 0.60 : smallScreenContainerSize,
+    height: isLargeScreen ? width * 0.22 : smallScreenContainerSize,
     // width: width * 0.60,
     // height: width * 0.22,
     backgroundColor: "#rgb(58, 61, 94)",
     borderRadius: 10,
    
-    margin: 2,
+   margin: isLargeScreen ? 2 : smallScreenPadding,
     borderWidth: 6,  
     borderColor: "white", 
   },
@@ -394,8 +397,9 @@ const styles = StyleSheet.create({
     // borderWidth: 6,  
     // borderColor: "white", 
 
-    width: isLargeScreen ? width * 0.40 : '100%',
-    height: isLargeScreen ? width * 0.16 : 'auto',
+    width: isLargeScreen ? width * 0.40 : smallScreenContainerSize,
+    height: isLargeScreen ? width * 0.16 : smallScreenContainerSize,
+    margin: isLargeScreen ? 2 : smallScreenPadding,
     backgroundColor: "rgb(233, 200, 34)",
     borderRadius: 10,
     borderWidth: 6,  
@@ -418,8 +422,9 @@ const styles = StyleSheet.create({
   },
 
    aboutCard_RightBottom: {
-    width: isLargeScreen ? width * 0.50 : '100%',
-    height: isLargeScreen ? width * 0.16 : 'auto',
+    width: isLargeScreen ? width * 0.50 : smallScreenContainerSize,
+    height: isLargeScreen ? width * 0.16 : smallScreenContainerSize,
+    margin: isLargeScreen ? 2 : smallScreenPadding,
     backgroundColor: "rgb(87, 80, 115)",
     borderRadius: 10,
     margin: 2,
