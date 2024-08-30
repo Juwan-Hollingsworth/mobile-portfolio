@@ -39,11 +39,10 @@ const isLargeScreen = width > 768; //large screen arg
 const HomeScreen = () => {
 
   return (
+    <View style={styles.container}>
     <ScrollView
       style={styles.homescreenContainer}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.75, ease: "easeOut" }}
+      contentContainerStyle={styles.scrollViewContent}
     >
       {/* header area + btns  */}
 
@@ -211,12 +210,20 @@ const HomeScreen = () => {
    
       <Footer currentPage={"About"} />
     </ScrollView>
+    </View>
   );
 };
 
 export default HomeScreen;
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#152238",
+  },
+  scrollViewContent: {
+    flexGrow: 1,
+  },
   contentContainer: {
     flex: 1,
     justifyContent: "center",
