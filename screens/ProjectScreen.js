@@ -22,6 +22,8 @@ const { width, height } = Dimensions.get('window');
 const isLargeScreen = width > 768; //large screen arg
 
 
+
+
 const ProjectScreen = () => {
   const Projects = "Projects";
 
