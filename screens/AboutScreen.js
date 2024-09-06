@@ -51,6 +51,7 @@ const HomeScreen = () => {
 
       {/* homescreen content  */}
       <View style={styles.contentContainer}>
+      {/* Top containers: Left top (LT), Right top (RT) */}
       <View style={isLargeScreen ? styles.galleryRowLg : styles.galleryRowsm}>
 
   <View style={styles.aboutCard_LeftTop} >
@@ -58,7 +59,7 @@ const HomeScreen = () => {
             <View style={styles.imageContainer}>
       <Image source={juwan} style={styles.aboutImage} />
     </View>
-              <Text style={styles.aboutText}>Juwan Hollingsworth</Text>
+              <Text style={styles. titleTextRB}>Juwan Hollingsworth</Text>
               <Text style={[styles.aboutText, { marginBottom: 5 }]}>
                 Jhollingsworth5@student.clayton.edu
               </Text>
@@ -72,15 +73,12 @@ const HomeScreen = () => {
           </View>
   <View style={styles.aboutCard_RightTop} >
   <View style={styles.aboutCard_RightContainer}>
-  <Text style={styles.aboutText}>About Me</Text>
-                <View style={styles.workStatus}>
-                  <View>
-                    <FontAwesome5 name="check-circle" size={24} color="lime" />
-                    
-                  </View>
-                  <Text style={styles.aboutText}>Open to work</Text>
-                 
-                </View>
+  <Text style={styles.titleTextRB}>About Me</Text>
+  <View style={styles.workStatus}>
+  <FontAwesome5 name="check-circle" size={24} color="lime" />
+  <Text style={[styles.aboutText, { marginLeft: 5 }]}>Open to work</Text>
+</View>
+                <View></View>
                 <Text style={styles.aboutText}>
                   I'm Juwan, a full-stack software engineer with a Bachelor's in
                   Computer Science. I'm passionate about creating innovative
@@ -102,15 +100,16 @@ const HomeScreen = () => {
   </View>
 </View>
     </View>
+    {/* Bottom containers: Left bottom (LB), Right bottom (RB) */}
     <View style={isLargeScreen ? styles.galleryRowLg : styles.galleryRowsm}>
 
   <View style={styles.aboutCard_LeftBottom} >
   <View style={styles.boxTitleLB}>
-                <Text> Github</Text>
+                <Text style={styles.titleTextRB}> Github</Text>
                 <View style={styles.ghContainer}>
                   <GitHubCalendar
                     username="Juwan-Hollingsworth"
-                    colorScheme="dark"
+                    colorScheme="light"
                     blockSize={6}
                     year={2023}
                   />
@@ -128,7 +127,7 @@ const HomeScreen = () => {
                   </View>
                       {/* latest roles */}
                     <View>
-                      <Text style={styles.aboutText}>Latest Roles</Text>
+                      <Text style={styles.titleTextRB}>Latest Roles</Text>
                       {/* first section */}
                       <View style={styles.rolesContainer}>
                    
@@ -159,7 +158,7 @@ const HomeScreen = () => {
                     </View>
                     {/* certifications */}
                     <View>
-                      <Text style={styles.aboutText}>Certifications</Text>
+                      <Text style={styles.titleTextRB}>Certifications</Text>
                       {/* first section */}
                       <View style={styles.rolesContainer}>
                         <Image source={vivaticket} style={styles.roleIcon} />
@@ -182,11 +181,11 @@ const HomeScreen = () => {
                       </View>
                     </View>
                     {/* skills */}
-                    <View>
-                      <Text style={styles.aboutText}>Skills & Technologies</Text>
+                    <View >
+                      <Text style={styles.titleTextRB}>Skills & Technologies</Text>
                       <View>
                         <View>
-                          <View style={styles.rolesContainer}>
+                          <View style={styles.skillsContainer}>
                             {/* first section */}
                             <View>
                               <Image source={react} style={styles.skillIcon} />
@@ -200,7 +199,7 @@ const HomeScreen = () => {
                             </View>
                             {/* second section */}
                           </View>
-                          <View style={styles.rolesContainer}>
+                          <View style={styles.skillsContainer}>
                             <View>
                               <Image source={node} style={styles.skillIcon} />
 
@@ -309,6 +308,17 @@ const styles = StyleSheet.create({
     color: "white",
   },
 
+  titleTextRB:{
+
+    fontFamily: "lato-Regular",
+    fontWeight: "400",
+    fontStyle: "Regular",
+    color: "white",
+    fontSize: isLargeScreen ? "30px": "20px",
+    textAlign: "center",
+
+  },
+
    //Responsive styles
    galleryRowLg: {
     flexDirection: 'row',
@@ -326,8 +336,8 @@ const styles = StyleSheet.create({
   aboutCard_LeftTop: {
    width: isLargeScreen ? width * 0.30 : smallScreenContainerSize,
     height: isLargeScreen ? width * 0.22 : smallScreenContainerSize,
-    backgroundColor: "rgb(87, 80, 115)",
-    backgroundColor: "rgb(0, 77, 106)",
+    backgroundColor: "#rgb(58, 61, 94)",
+    // backgroundColor: "rgb(0, 77, 106)",
     borderRadius: 10,
     margin: isLargeScreen ? 2 : smallScreenPadding,
     borderWidth: 6,  
@@ -362,7 +372,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 32,
     borderRadius: 4,
     elevation: 3,
-    backgroundColor: "black",
+    backgroundColor: "rgb(233, 200, 34)",
   },
   resumeText: {
     fontSize: 16,
@@ -396,23 +406,16 @@ const styles = StyleSheet.create({
   },
   workStatus:{
     flexDirection: 'row',
-    flexWrap: 'wrap',
-    
+    alignItems: 'center',
+    justifyContent: 'center', // This will center the items horizontally
+    width: '100%'
   },
   
 
  //Card Styling -LB
 
   aboutCard_LeftBottom:{
-    // width: width * 0.40,
-    // height: width * 0.08,
-    // backgroundColor: "#rgb(233, 200, 34)",
-    // borderRadius: 10,
-    // borderWidth: 6,  
-    // borderColor: "white", 
-
     width: isLargeScreen ? width * 0.40 : smallScreenContainerSize,
-    // height: isLargeScreen ? width * 0.16 : smallScreenContainerSize,
     margin: isLargeScreen ? 2 : smallScreenPadding,
     backgroundColor: "rgb(233, 200, 34)",
     borderRadius: 10,
@@ -426,7 +429,9 @@ const styles = StyleSheet.create({
     height: '80%',
     justifyContent: 'center',
     alignItems: 'center',
+    color: "#F5F5F5",
   },
+
   boxTitleLB: {
     // width: wp("70%"),
     height: "200px",
@@ -439,26 +444,30 @@ const styles = StyleSheet.create({
     width: isLargeScreen ? width * 0.50 : smallScreenContainerSize,
     height: isLargeScreen ? width * 0.16 : "auto",
     margin: isLargeScreen ? 2 : smallScreenPadding,
-    backgroundColor: "rgb(87, 80, 115)",
+    backgroundColor: "#rgb(58, 61, 94)",
     borderRadius: 10,
     margin: 2,
     borderWidth: 6,
     borderColor: "white",
     padding: 10,
   },
+
   boxContainer3: {
     flex: 1,
     // padding: 10,
   },
+
   rolesInnerContainer: {
     flexDirection: isLargeScreen ? "row" : "col",
     gap: "20px",
     alignItems: !isLargeScreen ? "center" : "",
     marginBottom: isLargeScreen ? "" : "40px",
   },
+
   column: {
     flex: 1,
   },
+
   sectionTitle: {
     fontSize: 16,
     fontWeight: 'bold',
@@ -470,8 +479,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginBottom: 10,
   },
- 
-
 
   roleIcon: {
     width: 50,
@@ -483,11 +490,17 @@ const styles = StyleSheet.create({
   roleTextContainer: {
     flex: 1,
   },
+
   skillsContainer: {
     flexDirection: "row",
-    flexWrap: "wrap",
-    justifyContent: "space-between",
+    alignItems: "center",
+    marginBottom: 10,
+    gap: "20px",
+    width: "100%",
+    justifyContent: isLargeScreen ? "" : "space-between",
+    
   },
+
   skillItem: {
     alignItems: "center",
     width: '45%',
