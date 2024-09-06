@@ -452,6 +452,7 @@ const styles = StyleSheet.create({
   rolesInnerContainer: {
     flexDirection: isLargeScreen ? "row" : "col",
     justifyContent: "space-between",
+    alignItems: !isLargeScreen ? "center" : ""
   },
   column: {
     flex: 1,
