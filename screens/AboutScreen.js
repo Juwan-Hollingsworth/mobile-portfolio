@@ -437,7 +437,7 @@ const styles = StyleSheet.create({
  //Card Styling -RB
    aboutCard_RightBottom: {
     width: isLargeScreen ? width * 0.50 : smallScreenContainerSize,
-    // height: isLargeScreen ? width * 0.16 : smallScreenContainerSize,
+    height: isLargeScreen ? width * 0.16 : "auto",
     margin: isLargeScreen ? 2 : smallScreenPadding,
     backgroundColor: "rgb(87, 80, 115)",
     borderRadius: 10,
@@ -448,12 +448,13 @@ const styles = StyleSheet.create({
   },
   boxContainer3: {
     flex: 1,
-    padding: 10,
+    // padding: 10,
   },
   rolesInnerContainer: {
     flexDirection: isLargeScreen ? "row" : "col",
-    justifyContent: "space-between",
-    alignItems: !isLargeScreen ? "center" : ""
+    gap: "20px",
+    alignItems: !isLargeScreen ? "center" : "",
+    marginBottom: isLargeScreen ? "" : "40px",
   },
   column: {
     flex: 1,
