@@ -123,8 +123,43 @@ const HomeScreen = () => {
   <View style={styles.boxContainer3}>
                 <View>
                   <View style={styles.rolesInnerContainer}>
+                  <View >
+
+                  </View>
+                      {/* latest roles */}
                     <View>
                       <Text style={styles.aboutText}>Latest Roles</Text>
+                      {/* first section */}
+                      <View style={styles.rolesContainer}>
+                   
+                    <Image source={vivaticket} style={styles.roleIcon} />
+                        <View>
+                          <Text style={styles.aboutText}>
+                            IT Support Specialist
+                          </Text>
+                          <Text style={styles.aboutText}>Vivaticket</Text>
+                        </View>
+
+               
+                   
+                     
+                      
+                        
+                      </View>
+                      {/* first section */}
+                      <View style={styles.rolesContainer}>
+                        <Image source={cox} style={styles.roleIcon} />
+                        <View>
+                          <Text style={styles.aboutText}>
+                            Software Engineer Intern
+                          </Text>
+                          <Text style={styles.aboutText}>Vivaticket</Text>
+                        </View>
+                      </View>
+                    </View>
+                    {/* certifications */}
+                    <View>
+                      <Text style={styles.aboutText}>Certifications</Text>
                       {/* first section */}
                       <View style={styles.rolesContainer}>
                         <Image source={vivaticket} style={styles.roleIcon} />
@@ -146,29 +181,7 @@ const HomeScreen = () => {
                         </View>
                       </View>
                     </View>
-                    <View>
-                      <Text style={styles.aboutText}>Latest Roles</Text>
-                      {/* first section */}
-                      <View style={styles.rolesContainer}>
-                        <Image source={vivaticket} style={styles.roleIcon} />
-                        <View>
-                          <Text style={styles.aboutText}>
-                            IT Support Specialist
-                          </Text>
-                          <Text style={styles.aboutText}>Vivaticket</Text>
-                        </View>
-                      </View>
-                      {/* first section */}
-                      <View style={styles.rolesContainer}>
-                        <Image source={cox} style={styles.roleIcon} />
-                        <View>
-                          <Text style={styles.aboutText}>
-                            Software Engineer Intern
-                          </Text>
-                          <Text style={styles.aboutText}>Vivaticket</Text>
-                        </View>
-                      </View>
-                    </View>
+                    {/* skills */}
                     <View>
                       <Text style={styles.aboutText}>Skills & Technologies</Text>
                       <View>
@@ -398,7 +411,7 @@ const styles = StyleSheet.create({
     // borderColor: "white", 
 
     width: isLargeScreen ? width * 0.40 : smallScreenContainerSize,
-    height: isLargeScreen ? width * 0.16 : smallScreenContainerSize,
+    // height: isLargeScreen ? width * 0.16 : smallScreenContainerSize,
     margin: isLargeScreen ? 2 : smallScreenPadding,
     backgroundColor: "rgb(233, 200, 34)",
     borderRadius: 10,
@@ -408,22 +421,22 @@ const styles = StyleSheet.create({
   },
 
   ghContainer: {
-    width: '100%',
+    // width: '70%',
     height: '80%',
     justifyContent: 'center',
     alignItems: 'center',
   },
   boxTitleLB: {
-    width: wp("40%"),
+    // width: wp("70%"),
     height: "200px",
     borderRadius: 10,
     margin: 10,
     // backgroundColor: "rgba(227,229,255,255)",
   },
-
+ //Card Styling -RB
    aboutCard_RightBottom: {
     width: isLargeScreen ? width * 0.50 : smallScreenContainerSize,
-    height: isLargeScreen ? width * 0.16 : smallScreenContainerSize,
+    // height: isLargeScreen ? width * 0.16 : smallScreenContainerSize,
     margin: isLargeScreen ? 2 : smallScreenPadding,
     backgroundColor: "rgb(87, 80, 115)",
     borderRadius: 10,
@@ -437,7 +450,7 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   rolesInnerContainer: {
-    flexDirection: "row",
+    flexDirection: isLargeScreen ? "row" : "col",
     justifyContent: "space-between",
   },
   column: {
@@ -454,11 +467,15 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginBottom: 10,
   },
+ 
+
+
   roleIcon: {
     width: 50,
     height: 50,
     borderRadius: 10,
     marginRight: 10,
+   
   },
   roleTextContainer: {
     flex: 1,
