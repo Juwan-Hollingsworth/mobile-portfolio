@@ -1,12 +1,20 @@
 import React, { useState } from "react";
 import {
   StyleSheet,
-  Text,
   View,
-  Image,
+  Dimensions,
   TouchableOpacity,
+  Image,
+  Text,
+  ScrollView,
   Modal,
 } from "react-native";
+
+// Define screen css
+const { width, height } = Dimensions.get('window');
+const isLargeScreen = width > 768; //large screen arg
+const smallScreenContainerSize = Math.min(width * 0.8)
+const smallScreenPadding = 10;
 
 const ProjectCard = ({ image, title, skills, tag, description }) => {
   const [modalVisible, setModalVisible] = useState(false);
@@ -51,8 +59,8 @@ export default ProjectCard;
 
 const styles = StyleSheet.create({
   projCardContainer: {
-    width: 250,
-    height: 250,
+    width: isLargeScreen ? 250 : smallScreenContainerSize,
+    height: isLargeScreen ? 250 : smallScreenContainerSize,
     backgroundColor: "#f0f0f0",
     borderRadius: 10,
    
