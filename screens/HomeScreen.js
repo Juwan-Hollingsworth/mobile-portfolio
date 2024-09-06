@@ -12,10 +12,12 @@ import { useNavigation } from "@react-navigation/native";
 import Footer from "../components/Footer";
 import { animate, motion as m } from "framer-motion";
 
-const { width, height } = Dimensions.get("window"); // Get the screen dimensions
+// Define screen css
+const { width, height } = Dimensions.get('window');
+const isLargeScreen = width > 768; //large screen arg
+const smallScreenContainerSize = Math.min(width * 0.8)
+const smallScreenPadding = 10;
 
-console.log("w", width);
-console.log("h", height);
 
 const getViewPortClass = (w, h) => {
   if (w >= 1400 && h >= 500) {
@@ -91,11 +93,12 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   homeScreenTitle: {
+    paddingTop:  isLargeScreen ? "10px" : "20px",
     fontFamily: "libre baskerville",
     fontWeight: "400",
     fontStyle: "italic",
     color: "white",
-    fontSize: "5vw", // Adjust size based on viewport
+    fontSize:  isLargeScreen ? width * 0.05 : width * 0.10, // Adjust size based on viewport
     textAlign: "center",
   },
   homescreenImageContainer: {
@@ -114,7 +117,7 @@ const styles = StyleSheet.create({
     fontWeight: "400",
     fontStyle: "Regular",
     color: "white",
-    fontSize: "3vw",
+    fontSize: isLargeScreen ? width * 0.03 : width * 0.07,
     textAlign: "center",
     // marginBottom: height * 0.02,
   },
@@ -123,7 +126,7 @@ const styles = StyleSheet.create({
     fontWeight: "400",
     fontStyle: "Regular",
     color: "white",
-    fontSize: "3vw",
+    fontSize: isLargeScreen ? width * 0.02 : width * 0.06,
     textAlign: "center",
     // marginBottom: height * 0.02,
   },

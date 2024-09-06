@@ -326,6 +326,7 @@ const styles = StyleSheet.create({
   aboutCard_LeftTop: {
    width: isLargeScreen ? width * 0.30 : smallScreenContainerSize,
     height: isLargeScreen ? width * 0.22 : smallScreenContainerSize,
+    backgroundColor: "rgb(87, 80, 115)",
     backgroundColor: "rgb(0, 77, 106)",
     borderRadius: 10,
     margin: isLargeScreen ? 2 : smallScreenPadding,
